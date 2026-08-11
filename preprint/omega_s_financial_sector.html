@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Alberto Acedo" />
+  <title>The Triadic Stress Index in Financial Markets</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title"><strong>The Triadic Stress Index in Financial
+Markets</strong></h1>
+<p class="author">Alberto Acedo</p>
+<p class="date">August 2026</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Recent surveys of soil microbial networks under contrasting
+management report a consistent picture: agricultural inputs raise
+modularity and shift network organisation toward compartmentalised
+configurations that their authors read as less mutualistic and more
+fragmented <span class="citation" data-cites="saati2026"></span>. The
+same literature proposes network properties themselves, rather than
+species counts, as biomarkers of soil condition <span class="citation"
+data-cites="ortiz2021"></span>. What it does not supply is a
+mathematical quantity for the thing being described, which is the
+emergence of <strong>structural monopoly</strong>: a few nodes
+accumulating the interactions the rest lose. The accompanying
+theoretical work constructs that quantity, from topological entropy,
+Wasserstein curvature bounds and the non-equilibrium thermodynamics of
+complex networks <span class="citation"
+data-cites="acedo2026fsri"></span>. This paper takes that framework,
+without alteration, to the correlation network of financial assets, and
+asks what it says about systemic stress.</p>
+<p>We call the resulting quantity the <strong>Triadic Stress
+Index</strong>, TSI. The contribution is a conjunction rather than a
+single number: node-level attribution included with no parameter to get
+wrong, detection on a par with the best spectral measure, the cleanest
+alarms of anything tested, and a different underlying primitive. The
+rest of this abstract develops each in that order.</p>
+<p>TSI is built from the number of closed triangles in the weighted
+network, together with density, modularity and degree variance. Its
+orientation is reversed for this domain, because the configuration that
+means health in a soil community means crisis in a market. We test it
+across <strong>five markets</strong>, equities including banking crises
+and the AI sector, cryptocurrencies, commodities, foreign exchange and
+sovereign debt, spanning 2006–2026, against labelled crisis episodes, at
+a fixed alarm budget, out of sample, with block-bootstrap intervals.</p>
+<p><strong>What is different about it comes first.</strong> The index
+carries a per-node decomposition,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>A</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{diag}(A^3)</annotation></semantics></math>,
+that names which asset is carrying the concentration, and it has no
+parameter to select. Spectral attribution must choose how many
+components to read: with the right rule it matches the triangle count,
+with a fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">k=2</annotation></semantics></math>
+it loses a quarter of its accuracy when that value is wrong, and with
+the equally standard Kaiser rule it collapses to zero. Against the only
+published per-node alternative on correlation networks, the local
+balance index, the triangle decomposition scores 0.97–0.99 against
+0.33–0.84, and the ordering survives a benchmark rebuilt to favour the
+rival. We also report, because it is true and useful, that on real
+matrices the far simpler node degree gives the same answer.</p>
+<p><strong>On detection it matches the best available measure.</strong>
+Under a like-for-like protocol, TSI ties the effective rank and the
+Vendi score, the sharpest spectral baselines we could find, and does so
+across two samples and three independent crisis definitions. It beats
+the Absorption Ratio, the industry standard used by MSCI and central
+banks, by a wide margin (F1 gap 0.273 out of sample, 95% CI
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.10</mn><mo>,</mo><mspace width="0.167em"></mspace><mn>0.39</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0.10,\,0.39]</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>&lt;</mo><mn>0.0005</mn></mrow><annotation encoding="application/x-tex">p&lt;0.0005</annotation></semantics></math>),
+although that margin narrows under the strictest labelling. Its alarms
+are the cleanest of anything tested, 4.0% unexplained against 14.7% and
+roughly 59%, and it shares only half of them with its nearest relative,
+so it is reading something adjacent rather than identical.</p>
+<p><strong>We are explicit about register.</strong> A lead–lag analysis
+shows the cross-correlation with the stress index peaking at zero lag
+and decaying symmetrically: this is a coincident state index, not a
+forecast, and every claim here is framed accordingly. Two families of
+event fall outside it by construction, single-asset divergence and slow
+geopolitical compounding, and we close the obvious remedy for the first
+with a null: signing the correlation leaves the triangle count
+unchanged, because positive semi-definiteness bounds how frustrated a
+triangle can be.</p>
+<p>Two families of market event fall outside what the index is built to
+detect, by construction rather than by error: single-asset divergence
+and slow geopolitical compounding.</p>
+<p><strong>Code and data:</strong> <a
+href="https://github.com/BiomeMakers/TSI-OmegaS"
+class="uri">https://github.com/BiomeMakers/TSI-OmegaS</a></p>
+</div>
+</header>
+<h1 id="sec:intro">Introduction</h1>
+<p>TSI began as a descriptor of microbial co-occurrence networks in
+agricultural soils, where resilience indices were derived from network
+transitivity and competitive exclusion <span class="citation"
+data-cites="acedo2022indices"></span>, and where the same four
+quantities, clustering, density, modularity and the proportion of
+exclusion edges, were observed to move together along a management
+gradient. The accompanying theoretical work <span class="citation"
+data-cites="acedo2026fsri"></span> formalises that construction and
+establishes that its central quantity, the trace of the cube of the
+adjacency matrix, proportional to the number of closed triangles in the
+graph, is domain-agnostic: any system representable as a weighted
+network admits the same computation.</p>
+<p>This motivates a natural question. If the four factors that separate
+a managed soil community from an undisturbed one are computed instead on
+the correlation network among financial assets, do they register the
+kind of structural concentration that characterises a system under
+systemic stress, the configuration Minsky described as fragility built
+up in plain sight <span class="citation"
+data-cites="minsky1992"></span>? We call the resulting quantity the
+<strong>Triadic Stress Index</strong>, TSI, and write it that way
+throughout, in prose and in equations.</p>
+<p>A note on which factor is active, because that does not travel
+between constructions and it is the first thing a reader should check.
+The theoretical work <span class="citation"
+data-cites="acedo2026fsri"></span> reports a direct measurement in a
+setting where the adjacency matrix is obtained by passing weight
+correlations through a bounded sigmoidal map. There the clustering
+factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+is driven against a constant and is numerically inert, and the operative
+factor is the degree-variance term
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{Coex}</annotation></semantics></math>.
+That is a property of how
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+is built, not of the index. Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+is a correlation matrix among assets, built without any saturating
+nonlinearity, so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+is free to vary and contributes to TSI as defined; we checked this
+rather than assumed it, and the excess ratio
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>/</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">C/D</annotation></semantics></math>
+departs from unity on these matrices, whereas under a sigmoidal
+construction it equals unity to four decimal places. The two settings
+are therefore consistent: the same four factors, with the clustering
+channel inert in one construction and active in the other.</p>
+<p>We are deliberate about the verb. This paper tests whether TSI
+<em>registers</em> such a state, not whether it <em>forecasts</em> its
+onset. Section <a href="#sec:leadlag" data-reference-type="ref"
+data-reference="sec:leadlag">6.7</a> reports a lead–lag analysis showing
+the distinction matters: TSI is a coincident state index, not a leading
+indicator, and we frame every claim accordingly.</p>
+<p>Three claims are made and each is stated so that it can fail.
+<strong>H1, detection</strong>: the index separates labelled crisis
+windows from calm ones at least as well as the sharpest spectral
+measures available, at an equal alarm budget. It fails if a baseline
+beats it with an interval excluding zero. <strong>H2,
+attribution</strong>: the per-node decomposition names the asset
+carrying the concentration without any parameter to select. It fails if
+a rule with a parameter beats it, or if a published per-node alternative
+does. <strong>H3, register</strong>: the index is coincident with stress
+rather than leading it. It fails if the cross-correlation with an
+external stress measure peaks at a negative lag.</p>
+<p>The order of what follows is deliberate: first what the index does
+that the alternatives do not, then where it merely equals them, then the
+boundary of what it can be asked to do at all. Results that did not
+survive testing are reported alongside those that did, including the
+scope boundaries and the questions that remain open.</p>
+<h1 id="hypotheses-and-what-would-falsify-them">Hypotheses and What
+Would Falsify Them</h1>
+<p>The three claims of Section <a href="#sec:intro"
+data-reference-type="ref" data-reference="sec:intro">1</a> are
+operationalised as follows, and the criteria were fixed before the
+corresponding experiments were run.</p>
+<ul>
+<li><p><strong>H1, detection at parity.</strong> Scored by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>1</mn></msub><annotation encoding="application/x-tex">F_1</annotation></semantics></math>
+at the 90th percentile of each series against labelled crisis windows,
+so that every metric spends the same alarm budget, with block-bootstrap
+intervals on the difference. Falsified if any baseline’s advantage has
+an interval excluding zero. Three independent crisis definitions are
+used and reported separately, because a result that holds only under one
+labelling is not a result.</p></li>
+<li><p><strong>H2, attribution without a parameter.</strong> Scored by
+the hit rate in the
+top-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="prefix">|</mo><annotation encoding="application/x-tex">|</annotation></semantics></math>epicentres<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="prefix">|</mo><annotation encoding="application/x-tex">|</annotation></semantics></math>
+on a synthetic benchmark where ground truth exists, across regimes with
+one to four simultaneous epicentres. Falsified if a spectral rule with a
+well-chosen
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>,
+or a published per-node alternative, scores higher across
+regimes.</p></li>
+<li><p><strong>H3, coincident register.</strong> Scored by the
+cross-correlation between the index and an external stress index across
+lags. Falsified if the peak sits at a negative lag, which would make it
+a leading indicator.</p></li>
+</ul>
+<p>A fourth question is not a hypothesis but a scope condition, and it
+is answered in Section <a href="#sec:large_network"
+data-reference-type="ref" data-reference="sec:large_network">6.9</a>: on
+what kind of network does the raw index work, and where does it need the
+persistence filter?</p>
+<h1 id="the-index">The Index</h1>
+<h2 id="construction-on-a-financial-network">Construction on a Financial
+Network</h2>
+<p>For a rolling window of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+days of daily log-returns of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+assets, we build the correlation matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>,
+define the adjacency matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">|</mo><mi>ρ</mi><mo stretchy="true" form="postfix">|</mo></mrow></mrow><annotation encoding="application/x-tex">A = |\rho|</annotation></semantics></math>
+(absolute value, zero diagonal), and compute:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">I</mi></mrow><mo>=</mo><mfrac><mrow><mi>C</mi><mo>⋅</mo><mi>D</mi></mrow><mi>M</mi></mfrac><mo>⋅</mo><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\mathrm{TSI} = \frac{C \cdot D}{M} \cdot \mathrm{Coex},
+\label{eq:omega}</annotation></semantics></math> where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+is the weighted clustering coefficient (normalised
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Tr</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>A</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\operatorname{Tr}(A^3)</annotation></semantics></math>),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+is connection density,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+is the inverse spectral gap of the graph Laplacian (a modularity proxy),
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{Coex}</annotation></semantics></math>
+is the variance of the degree sequence. The construction descends from
+prior work on co-inclusion and co-exclusion networks in agricultural
+microbiomes, where resilience indices were derived from network
+transitivity <span class="citation"
+data-cites="acedo2022indices"></span>, following the original definition
+in <span class="citation" data-cites="acedo2026fsri"></span>. Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{Coex}</annotation></semantics></math>
+all scale with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+in different ways, raw TSI magnitudes are <strong>not comparable across
+networks of different size</strong>; only within-series dynamics
+(z-scores, percentiles) are.</p>
+<h4 id="the-name.">The name.</h4>
+<p>We call the quantity in <a href="#eq:omega"
+data-reference-type="eqref" data-reference="eq:omega">[eq:omega]</a> the
+<strong>Triadic Stress Index</strong> (TSI). Each part of the name
+records something that the rest of this paper either establishes or
+bounds. <em>Triadic</em>, because the closed-triangle count is the only
+one of the four factors that is not a function of the degree sequence
+alone, and because the per-node attribution of Section <a
+href="#sec:attrib" data-reference-type="ref"
+data-reference="sec:attrib">6.1</a> is the triangle count read per node
+rather than summed. <em>Stress</em>, because in this domain the index
+rises under stress, which is the reverse of the orientation the same
+construction carries in the ecological setting it comes from, for the
+reason set out immediately below. And <em>index</em> rather than signal
+or forecast, because Section <a href="#sec:leadlag"
+data-reference-type="ref" data-reference="sec:leadlag">6.7</a>
+establishes that it is coincident with stress and does not lead it.</p>
+<h4
+id="a-note-on-notation-because-the-names-in-this-family-are-easy-to-confuse.">A
+note on notation, because the names in this family are easy to
+confuse.</h4>
+<p>The accompanying theoretical work writes this quantity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>,
+and the machine-learning line built on the same trace carries the Omega
+name as well. To keep the financial instrument distinct from both, we
+write TSI throughout this paper, in prose and in equations, and reserve
+the other names for what they denote: <strong>FSRI</strong> for the
+theoretical framework, <strong>Omega-S</strong> for the machine-learning
+line, and <strong>TSI</strong> for the index defined here.</p>
+<h4 id="rem:composition_fin">Relation to the composition fixed in the
+framework paper.</h4>
+<p>Equation <a href="#eq:omega" data-reference-type="eqref"
+data-reference="eq:omega">[eq:omega]</a> places
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{Coex}</annotation></semantics></math>
+in the numerator, whereas Definition 1 of the framework paper <span
+class="citation" data-cites="acedo2026fsri"></span> places it in the
+denominator, so that a high degree variance lowers the index there and
+raises it here. The two agree on the other three factors, including the
+orientation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+as an inverse spectral gap. We keep the composition above, and we give
+the reason rather than leaving the difference to be found by comparing
+code.</p>
+<p>The reason is that the two domains do not agree on what the same
+structure means. Under stress, correlations rise, the network becomes
+denser and more connected, and every factor moves in the same direction:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+rises,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+rises,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{Coex}</annotation></semantics></math>
+rises, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>,
+being an inverse spectral gap, falls. A stress indicator should
+therefore place the three that rise in the numerator and the one that
+falls in the denominator, which is what <a href="#eq:omega"
+data-reference-type="eqref" data-reference="eq:omega">[eq:omega]</a>
+does; the composition of Definition 1 places
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{Coex}</annotation></semantics></math>
+against the other three. The underlying asymmetry is that a densely
+interconnected, weakly modular community is the healthy configuration in
+the ecological setting the index derives from, and is the crisis
+configuration in a market, where it means that everything falls
+together. The difference between the two papers is thus a deliberate
+reorientation by domain and not an unreconciled discrepancy.</p>
+<p>We also tested it rather than only arguing it, on the same windows
+and with the same detection protocol used throughout this paper. Over a
+portfolio of large US banks from 2006 to 2011, with the crisis window
+labelled as 2007-08 to 2009-06, the filtered
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>1</mn></msub><annotation encoding="application/x-tex">F_1</annotation></semantics></math>
+at the ninetieth percentile is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.275</mn><annotation encoding="application/x-tex">0.275</annotation></semantics></math>
+for the composition of <a href="#eq:omega" data-reference-type="eqref"
+data-reference="eq:omega">[eq:omega]</a> and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.157</mn><annotation encoding="application/x-tex">0.157</annotation></semantics></math>
+for that of Definition 1, against a chance level of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.152</mn><annotation encoding="application/x-tex">0.152</annotation></semantics></math>
+for an alarm rate of ten percent at the observed crisis frequency. The
+composition used here detects at roughly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.8</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">1.8\times</annotation></semantics></math>
+chance while the alternative sits at chance. Two limits should be read
+alongside that. Block-bootstrap confidence intervals on the paired
+difference are wide and include zero
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.054</mn></mrow><annotation encoding="application/x-tex">+0.054</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mo>−</mo><mn>0.229</mn><mo>,</mo><mo>+</mo><mn>0.315</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[-0.229, +0.315]</annotation></semantics></math>),
+so the comparison is directional rather than conclusive; and on this
+particular portfolio and period the Absorption Ratio also sits near
+chance
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.167</mn><annotation encoding="application/x-tex">0.167</annotation></semantics></math>),
+which indicates that the test itself discriminates weakly rather than
+that the alternative composition is uniquely poor. The argument from
+domain orientation above is the stronger of the two and does not depend
+on this measurement.</p>
+<p>A third composition deserves reporting because its outcome is a
+limitation of the index rather than a point in its favour. The framework
+paper shows that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi></mrow><mo>=</mo><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{Coex} = \operatorname{Var}(k)</annotation></semantics></math>
+carries units of degree squared and proposes a shape-normalised variant
+that replaces it by the Gini coefficient of the degree sequence and the
+density by the mean degree, removing the dependence on the scale of the
+degree sequence. On the same test that variant scores
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.098</mn><annotation encoding="application/x-tex">0.098</annotation></semantics></math>,
+that is <em>below</em> chance. The implication is uncomfortable and we
+state it: a substantial part of what TSI detects in this setting is the
+level of correlation rather than the shape of its distribution, and
+removing the scale dependence removes the signal with it. This does not
+affect the comparisons reported below, which are all against external
+baselines computed on the same windows, but it does bound what the index
+should be claimed to measure.</p>
+<h4
+id="the-closest-structural-precedent-and-we-do-benchmark-against-it.">The
+closest structural precedent, and we do benchmark against it.</h4>
+<p>Sandhu, Georgiou and Tannenbaum <span class="citation"
+data-cites="sandhu2016"></span> compute Ollivier-Ricci curvature on
+correlation networks of equities and report it as an indicator of market
+fragility and systemic risk. That is the same graph construction and the
+same purpose as the present work, reached from discrete geometry rather
+than from triadic structure, and it is the nearest precedent to what
+follows. Earlier versions of this paper named it and declined to
+benchmark against it, on the grounds that per-edge Ollivier-Ricci
+requires a Wasserstein computation for every edge and therefore sits in
+a different cost regime from a stochastic trace estimate. That was a
+reason not to have done the work, not a reason for it not to be done, so
+we have now done it: Section <a href="#sec:ricci"
+data-reference-type="ref" data-reference="sec:ricci">6.5</a> reports the
+head-to-head on the same windows, under the same filter and the same
+alarm budget as every other benchmark here. We note in passing that a
+subsequent analysis <span class="citation"
+data-cites="expost2024"></span> argues the curvature identifies the size
+and duration of a crisis accurately without leading it, which is the
+same register we establish for TSI in Section <a href="#sec:leadlag"
+data-reference-type="ref" data-reference="sec:leadlag">6.7</a>.</p>
+<h4 id="other-network-structural-indicators-and-where-this-sits.">Other
+network-structural indicators, and where this sits.</h4>
+<p>Systemic risk has been approached through exposure and connectedness
+models <span class="citation"
+data-cites="diebold2014 acemoglu2015 billio2012"></span> and through
+random-matrix cleaning of correlation matrices <span class="citation"
+data-cites="laloux1999 plerou2002"></span>. The present work belongs to
+neither: it fixes a single composite index in advance, taken from an
+external domain, and asks how it scores against spectral baselines on
+the same windows. Three lines of work are close enough that we state the
+relation explicitly rather than let a reader find it. Samal, Kumar,
+Yadav and Chakraborti <span class="citation"
+data-cites="samal2021fin"></span> evaluate a battery of network-centric
+indicators, including edge curvatures, clique number and community
+counts, on threshold networks over minimum spanning trees of 69 global
+indices, and conclude that network measures are useful for monitoring
+fragility. That is the same question as ours; what differs is that they
+survey measures and we commit to one in advance. Bartesaghi, Diaz-Diaz,
+Grassi and Uberti <span class="citation"
+data-cites="bartesaghi2025"></span> use the global balance index of the
+<em>signed</em> correlation network as a systemic-risk measure and
+derive a local, per-node version of it, developed further into an
+investment-decision rule in follow-up work <span class="citation"
+data-cites="bartesaghi2025local"></span>. That is the closest existing
+work to the signed extension this paper leaves open, and we state the
+position plainly: our
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">|</mo><mi>ρ</mi><mo stretchy="true" form="postfix">|</mo></mrow></mrow><annotation encoding="application/x-tex">A = |\rho|</annotation></semantics></math>
+discards precisely the information their index is built from, their
+global balance is already benchmarked against spectral risk measures as
+ours is, and their local balance is a per-node attribution of the same
+kind as ours. Rather than list the signed variant as future work, we ran
+it, and report three findings in Section <a href="#sec:signed"
+data-reference-type="ref" data-reference="sec:signed">6.13</a>. Zhang,
+Wang, Zheng and Cartlidge <span class="citation"
+data-cites="zhang2026defi"></span> pair a correlation fragility
+indicator computed on time-varying correlation networks with a risk
+contribution score that attributes systemic risk to categories of
+protocol; a structural index plus a per-node decomposition is the same
+shape as what is reported here, on a different asset universe. None of
+the three is used as a running benchmark, for the cost-regime reason
+given above, and we regard a comparison against the signed balance index
+as the most informative of the three left undone.</p>
+<h1 id="sec:benchmarks">Benchmarks</h1>
+<p>Four families of comparison are used, and the reason for each
+differs.</p>
+<ul>
+<li><p><strong>The Absorption Ratio</strong>, described below. It is the
+industry standard and therefore the measure a practitioner would already
+have running. It is a weak baseline on this data, which the results
+below make plain.</p></li>
+<li><p><strong>The effective rank and the Vendi score</strong>, spectral
+entropies of the correlation eigenvalues. These are the
+<em>sharpest</em> baselines we could find rather than the most common
+ones, and they are the honest test of H1. They are described and scored
+in Section <a href="#sec:spectral" data-reference-type="ref"
+data-reference="sec:spectral">6.2</a>.</p></li>
+<li><p><strong>Per-node alternatives</strong>: spectral attribution
+under four different rules for choosing the number of components, the
+node degree, and the local balance index of Bartesaghi et al. All are
+scored in Section <a href="#sec:attrib" data-reference-type="ref"
+data-reference="sec:attrib">6.1</a>.</p></li>
+<li><p><strong>The global balance index</strong> of the signed
+correlation network, treated separately below because it cannot be
+scored fairly on the networks used here.</p></li>
+</ul>
+<h2 id="sec:ar">Benchmark: the Absorption Ratio</h2>
+<p>The Absorption Ratio <span class="citation"
+data-cites="kritzman2010"></span> is the fraction of total variance
+explained by the first
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+principal components of the return covariance matrix
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mo stretchy="false" form="prefix">⌊</mo><mi>n</mi><mi>/</mi><mn>5</mn><mo stretchy="false" form="postfix">⌋</mo></mrow><annotation encoding="application/x-tex">k = \lfloor n/5 \rfloor</annotation></semantics></math>).
+It is the de facto standard in systemic-risk management, used by MSCI
+and central banks, and is computed on the same rolling windows as TSI
+for direct comparability.</p>
+<p><strong>Additional spectral benchmarks.</strong> The Absorption Ratio
+summarises the eigenvalue spectrum through the mass of its leading
+components. Because TSI is itself partly a spectral object, benchmarking
+against the AR alone risks comparing against a deliberately coarse
+summary. We therefore add two sharper spectral baselines on the same
+windows: the <em>effective rank</em> <span class="citation"
+data-cites="roy2007"></span>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>H</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\exp(H)</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+the Shannon entropy of the correlation eigenvalues normalised to sum to
+one; and the <em>Vendi score</em> <span class="citation"
+data-cites="friedman2023"></span>, the exponential of the von Neumann
+entropy of the normalised correlation kernel, which on a correlation
+matrix is <em>mathematically identical</em> to the effective rank, an
+equivalence we state explicitly rather than presenting the two as
+independent evidence. We additionally report an effective rank computed
+on the return matrix itself (entropy of the singular-value spectrum), a
+genuinely distinct quantity.</p>
+<h2 id="sec:balancebench">The Global Balance Index, and Why It Is Not in
+the Main Table</h2>
+<p>The nearest published rival is the global balance index of the signed
+correlation network <span class="citation"
+data-cites="bartesaghi2025"></span>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi><mo>=</mo><mo>tr</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>e</mi><mi>A</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mo>tr</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>e</mi><mrow><mo stretchy="true" form="prefix">|</mo><mi>A</mi><mo stretchy="true" form="postfix">|</mo></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\kappa = \operatorname{tr}(e^A) /
+\operatorname{tr}(e^{|A|})</annotation></semantics></math>, with a
+per-node counterpart used for investment decisions in follow-up
+work <span class="citation" data-cites="bartesaghi2025local"></span>. It
+belongs in this list on merit: it is built on the same object, aims at
+the same target, and is published in a peer-reviewed venue. We
+reimplemented it and verified our version against the authors’ own
+public code, obtaining agreement to machine precision over 2 232
+windows.</p>
+<p>It does not appear as a column in the detection table for a reason we
+measured rather than assumed. On small networks the index
+<em>saturates</em>: with eight nodes it sits at its maximum of 1 on 26%
+of windows in its weighted form and 70% in the binary form the same
+authors report, because a small correlation network is close to balanced
+whatever the market is doing. Any ranking produced under those
+conditions describes a degenerate regime, not the index, so we produce
+none. Section <a href="#sec:signed" data-reference-type="ref"
+data-reference="sec:signed">6.13</a> reports what we did measure
+instead, including the regime in which the index is well behaved, a
+check that its own published relationship reproduces on our data, and a
+head-to-head on a 464-asset universe where it does not saturate.</p>
+<h1 id="data-and-protocol">Data and Protocol</h1>
+<h2 id="data">Data</h2>
+<div id="tab:data">
+<table>
+<caption>Datasets used in this study.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Assets
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>)</th>
+<th style="text-align: left;">Period</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Banking crises (Bear Stearns, Lehman,</td>
+<td style="text-align: left;">10 banks</td>
+<td style="text-align: left;">2006–2011</td>
+<td style="text-align: left;">yfinance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">European debt crisis)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AI sector</td>
+<td style="text-align: left;">11 stocks</td>
+<td style="text-align: left;">2021–2026</td>
+<td style="text-align: left;">yfinance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Out-of-sample validation</td>
+<td style="text-align: left;">8 OFR components</td>
+<td style="text-align: left;">2000–2026</td>
+<td style="text-align: left;">OFR</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Large-network robustness</td>
+<td style="text-align: left;">42 stocks, 7 sectors</td>
+<td style="text-align: left;">2006–2026</td>
+<td style="text-align: left;">yfinance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cross-market (crypto, FX,
+commodities,</td>
+<td style="text-align: left;">10+7+10+10</td>
+<td style="text-align: left;">2021–2024</td>
+<td style="text-align: left;">yfinance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sovereign debt)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>All windows: 20 trading days, recomputed every 3 days.</p>
+<h2 id="sec:mem">TSI with Persistence Memory</h2>
+<p>We apply an asymmetric exponential filter:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">m</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>α</mi><mo>↑</mo></msub><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">I</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>α</mi><mo>↑</mo></msub><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">m</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="1.0em"></mspace><mrow><mtext mathvariant="normal">if </mtext><mspace width="0.333em"></mspace></mrow><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">I</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>&gt;</mo><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">m</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">m</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>α</mi><mo>↓</mo></msub><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">I</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>α</mi><mo>↓</mo></msub><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">m</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="1.0em"></mspace><mrow><mtext mathvariant="normal">if </mtext><mspace width="0.333em"></mspace></mrow><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">I</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">m</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\mathrm{mem}(t) &amp;= \alpha_{\uparrow}\,\mathrm{TSI}(t) +
+  (1-\alpha_{\uparrow})\,\mathrm{mem}(t-1)
+  \quad \text{if } \mathrm{TSI}(t) &gt; \mathrm{mem}(t-1), \label{eq:mem_up}\\
+\mathrm{mem}(t) &amp;= \alpha_{\downarrow}\,\mathrm{TSI}(t) +
+  (1-\alpha_{\downarrow})\,\mathrm{mem}(t-1)
+  \quad \text{if } \mathrm{TSI}(t) \leq \mathrm{mem}(t-1), \label{eq:mem_down}
+\end{aligned}</annotation></semantics></math> with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mo>↑</mo></msub><mo>=</mo><mn>0.6</mn></mrow><annotation encoding="application/x-tex">\alpha_{\uparrow} = 0.6</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mo>↓</mo></msub><mo>=</mo><mn>0.08</mn></mrow><annotation encoding="application/x-tex">\alpha_{\downarrow} = 0.08</annotation></semantics></math>,
+chosen by inspection and later validated by grid search (Section <a
+href="#sec:oos" data-reference-type="ref"
+data-reference="sec:oos">5.3</a>).</p>
+<h2 id="sec:oos">Out-of-Sample Calibration and Significance Testing</h2>
+<p>Hyperparameters were calibrated via grid search
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mo>↑</mo></msub><mo>∈</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.3</mn><mo>,</mo><mn>0.8</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\alpha_{\uparrow} \in [0.3, 0.8]</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mo>↓</mo></msub><mo>∈</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.02</mn><mo>,</mo><mn>0.20</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\alpha_{\downarrow} \in [0.02, 0.20]</annotation></semantics></math>)
+with a genuine temporal train/test split on the 2000–2026 OFR Financial
+Stress Index series (train 2000–2015, test 2016–2026). Statistical
+significance of the F1 gap between TSI with memory and the Absorption
+Ratio was assessed via block bootstrap (block length
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>≈</mo><annotation encoding="application/x-tex">\approx</annotation></semantics></math>
+1 quarter,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mn>2</mn><mo>,</mo><mn>000</mn></mrow><annotation encoding="application/x-tex">B = 2{,}000</annotation></semantics></math>
+resamples), restricted to the out-of-sample period only.</p>
+<h2 id="persistent-homology">Persistent Homology</h2>
+<p>We implemented Vietoris-Rips persistent homology from scratch
+(boundary-matrix reduction,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℤ</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\mathbb{Z}_2</annotation></semantics></math>
+coefficients), validated against an analytical test case (a 6-point
+circle, which yields exactly one H1 generator). We tested two
+constructions:</p>
+<p><strong>Correlation-network H1</strong> (negative result):
+Vietoris-Rips filtration on the asset correlation-distance matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><msqrt><mrow><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>ρ</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msqrt></mrow><annotation encoding="application/x-tex">d_{ij} = \sqrt{2(1-\rho_{ij})}</annotation></semantics></math>
+<span class="citation" data-cites="mantegna1999"></span>.</p>
+<p><strong>Takens-embedding H1</strong> (positive result): following
+Gidea &amp; Katz <span class="citation" data-cites="gidea2018"></span>,
+a scalar stress series is reconstructed as a point cloud in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mi>d</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^d</annotation></semantics></math>
+via time-delay embedding, and persistent homology is computed on that
+point cloud within each rolling window.</p>
+<h1 id="results">Results</h1>
+<p>What follows is ordered by argument rather than by chronology: first
+the layer that has no equivalent among the baselines, then the layer
+where the index merely matches them, then the comparison it wins and the
+one it does not, then the boundary of what it can be asked to do, and
+finally the robustness checks and the extension we closed with a
+null.</p>
+<h2 id="sec:attrib">On the Node-Attribution Layer</h2>
+<p>Detection says the system is stressed. Attribution says
+<em>where</em>. The two are not equally hard, and the difference is not
+that spectral methods cannot attribute, because they can: the loading on
+the leading eigenvector, directly available to any Absorption-Ratio
+user, recovers a single epicentre perfectly. The difference is that they
+need to be told how many places to look, or given a rule for deciding
+it. Reading eigenvectors requires committing to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>,
+the number of components to inspect, and in deployment
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+is either fixed in advance, before anyone knows how many epicentres the
+next episode will have, or selected per window by a rule that can itself
+be wrong. The per-node decomposition
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>A</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{diag}(A^3)</annotation></semantics></math>,
+which is the alarm itself read per node rather than summed, has no such
+parameter. How much that is worth is the question this section answers,
+and the answer is more modest than the framing above suggests.</p>
+<p>We tested this on synthetic networks with a known epicentre, in two
+steps. First, whether the attribution works at all: over 80 simulations
+the culprit rule recovers the true epicentre in essentially every run
+(top-3 hit rate 1.00 against a chance level of 0.25), and under two
+simultaneous uncorrelated epicentres it recovers 0.93 of the six
+affected nodes (chance 0.50). Then the question that decides the
+comparison, which is robustness when the number of epicentres is
+unknown. We ran regimes of one to four simultaneous epicentres, holding
+the spectral method at a fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">k=2</annotation></semantics></math>
+as it would be held in deployment (120 simulations per regime, paired
+Wilcoxon):</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">Triangles</th>
+<th style="text-align: center;"></th>
+<th colspan="4" style="text-align: center;">Spectral, by how
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+is chosen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span>5-7</span> Epicentres</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>A</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{diag}(A^3)</annotation></semantics></math></td>
+<td style="text-align: center;">Degree</td>
+<td style="text-align: center;">fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">k=2</annotation></semantics></math></td>
+<td style="text-align: center;">MP</td>
+<td style="text-align: center;">Kaiser</td>
+<td style="text-align: center;">oracle</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: center;"><strong>0.994</strong></td>
+<td style="text-align: center;">0.933</td>
+<td style="text-align: center;">0.756</td>
+<td style="text-align: center;">0.997</td>
+<td style="text-align: center;">0.000</td>
+<td style="text-align: center;">0.989</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: center;">0.978</td>
+<td style="text-align: center;">0.940</td>
+<td style="text-align: center;">0.999</td>
+<td style="text-align: center;">0.978</td>
+<td style="text-align: center;">0.071</td>
+<td style="text-align: center;">0.999</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: center;"><strong>0.980</strong></td>
+<td style="text-align: center;">0.952</td>
+<td style="text-align: center;">0.946</td>
+<td style="text-align: center;">0.962</td>
+<td style="text-align: center;">0.457</td>
+<td style="text-align: center;">0.981</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: center;"><strong>0.975</strong></td>
+<td style="text-align: center;">0.961</td>
+<td style="text-align: center;">0.948</td>
+<td style="text-align: center;">0.959</td>
+<td style="text-align: center;">0.808</td>
+<td style="text-align: center;">0.989</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Top-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">|</mo><mtext mathvariant="normal">epicentres</mtext><mo stretchy="true" form="postfix">|</mo></mrow><annotation encoding="application/x-tex">|\text{epicentres}|</annotation></semantics></math>
+hit rate, 120 simulations per regime, 16 nodes and 40-observation
+windows. <em>MP</em> selects
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+per window as the number of eigenvalues above the Marchenko-Pastur
+edge <span class="citation" data-cites="marchenko1967"></span>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><msqrt><mrow><mi>n</mi><mi>/</mi><mi>T</mi></mrow></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>2.665</mn></mrow><annotation encoding="application/x-tex">(1+\sqrt{n/T})^2 = 2.665</annotation></semantics></math>,
+the standard random-matrix rule; it picks
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>1.71</mn></mrow><annotation encoding="application/x-tex">k = 1.71</annotation></semantics></math>
+on average. <em>Kaiser</em> selects the eigenvalues above 1 and picks
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>5.87</mn></mrow><annotation encoding="application/x-tex">k = 5.87</annotation></semantics></math>.
+<em>Oracle</em> is given the true number of epicentres and is not
+available in practice; it is the ceiling.</p>
+<figure id="fig:attribution">
+<embed src="figure3_attribution.pdf" style="width:72.0%" />
+<figcaption>Attribution accuracy as the number of simultaneous
+epicentres varies. The triangle rule is flat across regimes because it
+has no parameter to misspecify. The spectral rule depends entirely on
+how
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+is chosen: the Marchenko-Pastur rule ties the triangle rule everywhere,
+a fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">k=2</annotation></semantics></math>
+costs a quarter of the accuracy when it is wrong, and the equally
+standard Kaiser rule collapses. The spread between those three, not the
+gap to the triangle rule, is the result.</figcaption>
+</figure>
+<p>The triangle rule is flat, 0.975 to 0.994 across every regime,
+because there is no parameter in it to misspecify. Fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">k=2</annotation></semantics></math>
+matches it exactly where that value happens to be right (two epicentres)
+and loses a quarter of its accuracy where it is not (0.756 with a single
+epicentre).</p>
+<p><strong>The
+adaptive-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+control, and what it costs the claim.</strong> An earlier version of
+this section stopped there. It should not have, because the obvious
+objection is that a practitioner would not hold
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+fixed but read it off the spectrum window by window, and we had not
+tested it. We have now, and the result is against us: with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+chosen by the Marchenko-Pastur edge the spectral rule scores 0.959 to
+0.997 and ties the triangle rule across all four regimes. The oracle
+ties it as well. The gap in the
+fixed-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+column is therefore not evidence that triangles see something
+eigenvectors cannot; it is evidence that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+matters, and a good rule for choosing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+closes it.</p>
+<p>What the control does not do is make the choice free. The three
+selection rules in the table span 0.000 to 0.997 on the single-epicentre
+regime: Marchenko-Pastur lands near the ceiling, a fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">k=2</annotation></semantics></math>
+costs a quarter of the accuracy, and the Kaiser rule
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\lambda &gt; 1</annotation></semantics></math>),
+which is equally standard and equally defensible a priori, collapses
+completely, because it selects roughly six eigenvectors and the
+epicentre stops being separable in their combined loading. The spectral
+route can match
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>A</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{diag}(A^3)</annotation></semantics></math>,
+but only conditional on a selection decision whose wrong answers are
+catastrophic and are not identifiable without the ground truth we have
+here and a practitioner does not.</p>
+<p>So we state the claim at the size the evidence supports, which is
+smaller than the one we set out to make. TSI’s attribution is not more
+accurate than spectral attribution; against a well-chosen adaptive rule
+it is exactly as accurate. What it is, is unconditional: it arrives with
+the index, ranks the nodes with no parameter to select and no way to
+select it wrongly, and it also beats the simpler degree rule in all four
+regimes (0.933–0.961), which is why we adopt it over a generic
+centrality. That is a robustness and simplicity argument, not a
+resolution argument, and it should be read as one.</p>
+<p>Two further limits bound even that. The evidence is synthetic, with a
+controlled ground truth real markets do not provide, so it is a
+mechanism result and not a field validation. And it does not overturn
+the detection tie of Section <a href="#sec:spectral"
+data-reference-type="ref" data-reference="sec:spectral">6.2</a>: on
+discriminating stressed windows from calm ones, TSI and the effective
+rank remain statistically indistinguishable, and nothing here changes
+that.</p>
+<h2 id="sec:spectral">Benchmarking Against Sharper Spectral
+Baselines</h2>
+<p>Because the Absorption Ratio is a deliberately coarse spectral
+summary, we re-ran the identical protocol (same windows, crisis labels,
+F1-at-90th-percentile criterion and block bootstrap) against the sharper
+baselines of Section <a href="#sec:ar" data-reference-type="ref"
+data-reference="sec:ar">4.1</a>. One design point decides this
+comparison and we handle it explicitly: the persistence filter of
+Section <a href="#sec:mem" data-reference-type="ref"
+data-reference="sec:mem">5.2</a> helps any series that is elevated in
+bursts, so filtering TSI and not its rivals would flatter TSI. We
+therefore report every metric twice, raw and under the same asymmetric
+filter, and run the bootstrap on the like-for-like column. Out of sample
+(2016–2026, 897 windows):</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th colspan="2" style="text-align: center;">F1@p90</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span>2-3</span> Metric</td>
+<td style="text-align: center;">raw</td>
+<td style="text-align: center;">filtered</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Δ</mi><annotation encoding="application/x-tex">\Delta</annotation></semantics></math>F1</td>
+<td style="text-align: center;">95% CI</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math></td>
+<td style="text-align: center;">Verdict</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TSI</td>
+<td style="text-align: center;">0.367</td>
+<td style="text-align: center;"><strong>0.447</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Effective rank (corr.)</td>
+<td style="text-align: center;">0.347</td>
+<td style="text-align: center;">0.377</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.038</mn></mrow><annotation encoding="application/x-tex">+0.038</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mo>−</mo><mn>0.010</mn><mo>,</mo><mo>+</mo><mn>0.111</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[-0.010, +0.111]</annotation></semantics></math></td>
+<td style="text-align: center;">0.10</td>
+<td style="text-align: center;">tie</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vendi score</td>
+<td style="text-align: center;">0.347</td>
+<td style="text-align: center;">0.377</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.037</mn></mrow><annotation encoding="application/x-tex">+0.037</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mo>−</mo><mn>0.009</mn><mo>,</mo><mo>+</mo><mn>0.104</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[-0.009, +0.104]</annotation></semantics></math></td>
+<td style="text-align: center;">0.12</td>
+<td style="text-align: center;">tie</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Absorption Ratio</td>
+<td style="text-align: center;">0.174</td>
+<td style="text-align: center;">0.134</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.219</mn></mrow><annotation encoding="application/x-tex">+0.219</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mo>+</mo><mn>0.070</mn><mo>,</mo><mo>+</mo><mn>0.410</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[+0.070, +0.410]</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0.0005</mn></mrow><annotation encoding="application/x-tex">&lt;0.0005</annotation></semantics></math></td>
+<td style="text-align: center;">TSI wins</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Effective rank (returns)</td>
+<td style="text-align: center;">0.179</td>
+<td style="text-align: center;">0.174</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.227</mn></mrow><annotation encoding="application/x-tex">+0.227</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mo>+</mo><mn>0.097</mn><mo>,</mo><mo>+</mo><mn>0.393</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[+0.097, +0.393]</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0.0005</mn></mrow><annotation encoding="application/x-tex">&lt;0.0005</annotation></semantics></math></td>
+<td style="text-align: center;">TSI wins</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Δ</mi><annotation encoding="application/x-tex">\Delta</annotation></semantics></math>F1
+and its interval come from the block bootstrap on the filtered column
+and need not equal the difference of the two point estimates. The filter
+is the same asymmetric map for every row, applied to the stress-oriented
+signal (the effective rank and the Vendi score fall under stress, so
+they enter negated).</p>
+<figure id="fig:benchmarks">
+<embed src="figure2_benchmarks.pdf" style="width:72.0%" />
+<figcaption>Out-of-sample crisis detection, each metric read raw (pale)
+and under the same persistence filter (solid). TSI outperforms the
+Absorption Ratio by a wide margin in both readings, but the sharper
+spectral baselines sit within its confidence interval in both. The
+advantage over the industry standard is real; the advantage over a
+properly sharpened spectral measure is not, and giving the rivals the
+same filter does not change that verdict.</figcaption>
+</figure>
+<p>The verdict does not depend on which column is read. Raw, TSI leads
+the effective rank by 0.020; filtered, by 0.070; in neither case does
+the bootstrap interval exclude zero. Over the full history (2000–2026,
+2<span>,</span>232 windows) the pattern repeats: under the same filter
+TSI scores 0.389 against 0.342 for the effective rank (tie,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.07</mn></mrow><annotation encoding="application/x-tex">p = 0.07</annotation></semantics></math>)
+and 0.175 for the Absorption Ratio (TSI wins,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>&lt;</mo><mn>0.0005</mn></mrow><annotation encoding="application/x-tex">p &lt; 0.0005</annotation></semantics></math>).</p>
+<p><strong>Does the verdict depend on the crisis list?</strong> For one
+comparison, yes. Re-running the same protocol under each of the three
+lists of Section <a href="#sec:oos_results" data-reference-type="ref"
+data-reference="sec:oos_results">6.3</a>, on both the hold-out period
+and the full history, with every series filtered:</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sample</th>
+<th style="text-align: left;">List</th>
+<th style="text-align: center;">TSI</th>
+<th style="text-align: center;">Eff. rank</th>
+<th style="text-align: center;">Absorption R.</th>
+<th style="text-align: center;">Eff. rank (ret.)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Out of sample</td>
+<td style="text-align: left;">16 ep. (21.9%)</td>
+<td style="text-align: center;">0.434</td>
+<td style="text-align: center;">0.343
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>=</mo><annotation encoding="application/x-tex">=</annotation></semantics></math></td>
+<td style="text-align: center;">0.168
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>=</mo><annotation encoding="application/x-tex">=</annotation></semantics></math></td>
+<td style="text-align: center;">0.224
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>•</mo><annotation encoding="application/x-tex">\bullet</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2016–2026</td>
+<td style="text-align: left;">23 win. (34.9%)</td>
+<td style="text-align: center;">0.447</td>
+<td style="text-align: center;">0.377
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>=</mo><annotation encoding="application/x-tex">=</annotation></semantics></math></td>
+<td style="text-align: center;">0.134
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>•</mo><annotation encoding="application/x-tex">\bullet</annotation></semantics></math></td>
+<td style="text-align: center;">0.174
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>•</mo><annotation encoding="application/x-tex">\bullet</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">25 ep. (33.0%)</td>
+<td style="text-align: center;">0.451</td>
+<td style="text-align: center;">0.383
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>=</mo><annotation encoding="application/x-tex">=</annotation></semantics></math></td>
+<td style="text-align: center;">0.135
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>•</mo><annotation encoding="application/x-tex">\bullet</annotation></semantics></math></td>
+<td style="text-align: center;">0.181
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>•</mo><annotation encoding="application/x-tex">\bullet</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Full history</td>
+<td style="text-align: left;">16 ep. (27.7%)</td>
+<td style="text-align: center;">0.340</td>
+<td style="text-align: center;">0.363
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>=</mo><annotation encoding="application/x-tex">=</annotation></semantics></math></td>
+<td style="text-align: center;">0.204
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>=</mo><annotation encoding="application/x-tex">=</annotation></semantics></math></td>
+<td style="text-align: center;">0.192
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>=</mo><annotation encoding="application/x-tex">=</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2000–2026</td>
+<td style="text-align: left;">23 win. (40.6%)</td>
+<td style="text-align: center;">0.389</td>
+<td style="text-align: center;">0.342
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>=</mo><annotation encoding="application/x-tex">=</annotation></semantics></math></td>
+<td style="text-align: center;">0.175
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>•</mo><annotation encoding="application/x-tex">\bullet</annotation></semantics></math></td>
+<td style="text-align: center;">0.165
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>•</mo><annotation encoding="application/x-tex">\bullet</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">25 ep. (39.8%)</td>
+<td style="text-align: center;">0.386</td>
+<td style="text-align: center;">0.343
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>=</mo><annotation encoding="application/x-tex">=</annotation></semantics></math></td>
+<td style="text-align: center;">0.164
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>•</mo><annotation encoding="application/x-tex">\bullet</annotation></semantics></math></td>
+<td style="text-align: center;">0.167
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>•</mo><annotation encoding="application/x-tex">\bullet</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>=</mo><annotation encoding="application/x-tex">=</annotation></semantics></math>
+tie,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>•</mo><annotation encoding="application/x-tex">\bullet</annotation></semantics></math>
+TSI wins, by block bootstrap on the F1 gap. Percentages are the share of
+windows the list labels as stress.</p>
+<p>Two readings follow. The tie against the effective rank is
+<em>robust</em>: it holds in all six cells. Its direction is consistent,
+with TSI ahead in five of the six, and in the sixth the effective rank
+leads by 0.023, well inside the noise
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.59</mn></mrow><annotation encoding="application/x-tex">p = 0.59</annotation></semantics></math>).
+The win over the Absorption Ratio is <em>not</em> robust: it disappears
+in both cells of the narrowest list, where the gap remains positive
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.170</mn></mrow><annotation encoding="application/x-tex">+0.170</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.121</mn></mrow><annotation encoding="application/x-tex">+0.121</annotation></semantics></math>)
+but the interval touches zero. We report this because the Absorption
+Ratio is the benchmark this work set out to beat and the one a
+practitioner would already have in production. The correct statement is
+that TSI beats it clearly under the two broader labellings and falls
+short of conventional significance under the narrowest, which is also
+the one with the fewest labelled windows and the least power.</p>
+<p><strong>Why the tie happens, and what it is not.</strong> The four
+baselines are not four independent objects. The Vendi score and the
+effective rank are identical by construction on a correlation matrix, as
+noted in Section <a href="#sec:ar" data-reference-type="ref"
+data-reference="sec:ar">4.1</a>, and empirically the Absorption Ratio
+and the effective rank computed on the return matrix are near-duplicates
+as well (Pearson 0.91, Spearman 0.97), which is why they score alike.
+That leaves two distinct baselines, not four. Against them TSI is far
+from equidistant: it correlates 0.85 (Spearman 0.93) with the effective
+rank and only 0.54 (Spearman 0.61) with the Absorption Ratio, and it
+shares 53% of its alarm windows with the former against 34% with the
+latter. TSI is therefore a close relative of the effective rank and a
+distant one of the Absorption Ratio, which is exactly what the companion
+theoretical work predicts: the global scalar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Tr</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>A</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\operatorname{Tr}(A^3)</annotation></semantics></math>
+is the third spectral moment and belongs to the same family as the
+spectral entropies <span class="citation"
+data-cites="acedo2026fsri"></span>, whereas the Absorption Ratio reads
+leading-eigenvalue mass. The tie is not an awkward null result to be
+explained away; it is the predicted outcome, and the 47% of alarms TSI
+does not share with its nearest relative is the measure of how far a
+different construction of the same spectrum can move.</p>
+<p><strong>Alarm quality on a common criterion.</strong> Section <a
+href="#sec:oos_results" data-reference-type="ref"
+data-reference="sec:oos_results">6.3</a> gave an unexplained-alarm rate
+for TSI alone. Computed for every metric on the same 25-episode list, at
+the same top-decile alarm budget (full history, all series filtered):
+TSI 4.0% (9 of 224), effective rank and Vendi 14.7% (33), effective rank
+on returns 58.5% (131), Absorption Ratio 59.4% (133). Out of sample the
+ordering is the same (3.3%, 17.8%, 61.1%, 71.1%). TSI’s alarms are
+therefore the cleanest of any metric tested, by a wide margin over the
+industry standard and by roughly a factor of four over the effective
+rank.</p>
+<p>One qualification prevents that from being read as an independent
+result, and it is the reason we ran the comparison rather than quoting
+the 4% on its own. With the alarm budget fixed at the top decile, the
+unexplained-alarm rate is exactly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mtext mathvariant="normal">precision</mtext></mrow><annotation encoding="application/x-tex">1 - \text{precision}</annotation></semantics></math>,
+and F1 at a fixed alarm count is a monotone function of the same
+quantity. The two comparisons are one comparison in two presentations.
+The verdict from the bootstrap therefore carries over unchanged: against
+the effective rank the difference in alarm quality is real in point
+estimate and not separable from zero at this sample size, exactly as the
+F1 comparison found.</p>
+<p>We read this as the honest and more informative result. TSI’s
+advantage over the Absorption Ratio is real, reproducible and
+statistically significant but the gap is largely explained by the AR
+being a weak baseline on this data (F1
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo><mn>0.17</mn></mrow><annotation encoding="application/x-tex">\approx 0.17</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.19</mn><annotation encoding="application/x-tex">0.19</annotation></semantics></math>,
+roughly half of every other measure tested), not by TSI accessing
+information the spectrum lacks. <strong>Against a properly sharpened
+spectral baseline, TSI ties.</strong> It does not lose, and retains a
+small positive point estimate in every comparison, but the difference is
+not statistically distinguishable from zero. The defensible claim is
+therefore not that TSI dominates spectral methods, but that it matches
+the best of them while being constructed from a different primitive,
+network topology rather than variance decomposition, and while carrying
+an attribution layer that arrives with the index and needs no selection
+rule (Section <a href="#sec:attrib" data-reference-type="ref"
+data-reference="sec:attrib">6.1</a>, which also reports what that is and
+is not worth). A lead–lag analysis (Section <a href="#sec:leadlag"
+data-reference-type="ref" data-reference="sec:leadlag">6.7</a>)
+establishes the correct register for all of these claims: the
+cross-correlation with the stress index peaks at zero lag and decays
+symmetrically, so TSI is a <em>coincident state index</em>, reporting
+that the network is presently in a concentrated and stressed
+configuration, and not a leading indicator. We frame every claim
+accordingly.</p>
+<h2 id="sec:oos_results">Out-of-Sample Calibration and False-Alarm
+Rate</h2>
+<p>Over the full 2000–2026 OFR series (2,232 windows), the correlation
+between in-sample and out-of-sample F1 across the full 36-combination
+grid is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn mathvariant="bold">0.96</mn><annotation encoding="application/x-tex">\mathbf{0.96}</annotation></semantics></math>.
+The optimum
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mo>↓</mo></msub><mo>=</mo><mn>0.08</mn></mrow><annotation encoding="application/x-tex">\alpha_{\downarrow} = 0.08</annotation></semantics></math>,
+robust for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mo>↑</mo></msub><mo>∈</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.5</mn><mo>,</mo><mn>0.7</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\alpha_{\uparrow} \in [0.5, 0.7]</annotation></semantics></math>)
+matches the values chosen by inspection.</p>
+<p><strong>Three ground-truth lists, and which figure uses
+which.</strong> The episodes that count as stress were labelled at three
+points in this project and the lists are not identical. We set them out
+rather than let a reader assume a single list throughout, because each
+headline number below is attached to a different one.</p>
+<ul>
+<li><p>A <em>16-episode</em> list with narrow windows, used for the
+hyperparameter calibration of Section <a href="#sec:oos"
+data-reference-type="ref" data-reference="sec:oos">5.3</a>. On it, out
+of sample (2016–2026), TSI with memory gives <strong>69% precision and
+32% recall</strong> at the 90th-percentile threshold.</p></li>
+<li><p>A <em>23-window</em> list with wider windows, used for every F1
+figure in Sections <a href="#sec:signif" data-reference-type="ref"
+data-reference="sec:signif">6.4</a> and <a href="#sec:spectral"
+data-reference-type="ref" data-reference="sec:spectral">6.2</a>. On it,
+out of sample, the same series gives precision 1.00 and recall 0.29 (90
+alarms, none falling outside a labelled window).</p></li>
+<li><p>A <em>25-episode</em> list used to ask a different question: not
+whether an alarm falls inside a pre-drawn window, but whether it
+corresponds to any documented episode at all. Across the full history 9
+of 224 alarms have no such correspondence, a <strong>4.0%
+unexplained-alarm rate</strong>.</p></li>
+</ul>
+<p>Three caveats bound that last figure and we state all three. It is
+computed over the full 2000–2026 history rather than the hold-out
+period, so it is not an out-of-sample result. Its list is broader than
+the 23-window one, so it is a laxer test by construction. And we have
+not computed the same quantity for the Absorption Ratio or for the
+spectral baselines, so it characterises TSI and does not separate it
+from them. Rather than pick one list and discard the others, we re-ran
+every comparison under all three. Section <a href="#sec:spectral"
+data-reference-type="ref" data-reference="sec:spectral">6.2</a> reports
+the result: one verdict in this paper does depend on which list is used,
+and it is not the one we expected.</p>
+<h2 id="sec:signif">Statistical Significance</h2>
+<p>Restricted to 2016–2026 (897 windows), the F1 gap between TSI with
+memory and the Absorption Ratio is 0.273 (0.447 vs. 0.174).
+Block-bootstrap
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mn>2</mn><mo>,</mo><mn>000</mn></mrow><annotation encoding="application/x-tex">B=2{,}000</annotation></semantics></math>,
+block
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>≈</mo><annotation encoding="application/x-tex">\approx</annotation></semantics></math>
+1 quarter): <strong>95% CI
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.095</mn><mo>,</mo><mspace width="0.167em"></mspace><mn>0.392</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0.095,\, 0.392]</annotation></semantics></math></strong>,
+does not cross zero, one-sided
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>&lt;</mo><mn>0.0005</mn></mrow><annotation encoding="application/x-tex">p &lt; 0.0005</annotation></semantics></math>.</p>
+<p>TSI with memory here is the asymmetric filter of Section <a
+href="#sec:mem" data-reference-type="ref"
+data-reference="sec:mem">5.2</a>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mo>↑</mo></msub><mo>=</mo><mn>0.6</mn></mrow><annotation encoding="application/x-tex">\alpha_{\uparrow} = 0.6</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mo>↓</mo></msub><mo>=</mo><mn>0.08</mn></mrow><annotation encoding="application/x-tex">\alpha_{\downarrow} = 0.08</annotation></semantics></math>)
+applied to raw TSI, which is the form used throughout this paper. We say
+so explicitly because the next section compares against spectral rivals
+and the choice of filter moves the number materially.</p>
+<p><em>Caveat.</em> This metric rewards sustained-plateau behaviour,
+which is precisely what the memory filter was built to produce. The test
+confirms the filter achieves its design goal with statistical
+confidence, not that TSI with memory is superior on some independent
+criterion.</p>
+<h4 id="the-head-to-head-run-where-the-index-is-well-behaved.">The
+head-to-head, run where the index is well behaved.</h4>
+<p>On 464 S&amp;P 500 constituents with a complete ten-year history the
+balance index does not saturate: it takes distinct values in every
+window, and at the 90th percentile it flags 10.2% of them, as do TSI,
+the binary balance index and the effective rank. The Absorption Ratio
+cannot be scored in this configuration at all, and for a reason worth
+stating: with a 60-day window and 464 assets the covariance matrix has
+rank 59, so the top
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>/</mi><mn>5</mn><mo>=</mo><mn>93</mn></mrow><annotation encoding="application/x-tex">n/5 = 93</annotation></semantics></math>
+eigenvalues capture the entire trace by construction and the ratio is
+identically one. That is a limitation of the configuration, not of the
+measure.</p>
+<p>Ground truth here is <em>theirs</em>, not ours: a window is labelled
+systemic when the cross-sectional mean return falls below a threshold
+over a 20-day span, which is the definition used in the original work.
+Adopting it removes our own episode judgement from the comparison
+entirely.</p>
+<p><strong>The result is a tie, at every threshold and under both
+readings of the label.</strong> Scoring against the contemporaneous
+span, TSI reaches
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>1</mn></msub><annotation encoding="application/x-tex">F_1</annotation></semantics></math>
+of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.160</mn><annotation encoding="application/x-tex">0.160</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.161</mn><annotation encoding="application/x-tex">0.161</annotation></semantics></math>
+and the balance index
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.184</mn><annotation encoding="application/x-tex">0.184</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.187</mn><annotation encoding="application/x-tex">0.187</annotation></semantics></math>,
+with every paired difference’s interval crossing zero
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.43</mn><annotation encoding="application/x-tex">0.43</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.63</mn><annotation encoding="application/x-tex">0.63</annotation></semantics></math>);
+the binary variant and the effective rank land in the same place. No
+measure separates itself, and none is far above the chance level of
+roughly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.14</mn><annotation encoding="application/x-tex">0.14</annotation></semantics></math>
+at this alarm budget and base rate. We read that as a property of the
+label rather than of the measures: a return-based event is a coarse
+proxy for a structural one, and this is the price of using someone
+else’s definition rather than our own.</p>
+<p><strong>One thing did fall out of it, and it corroborates the central
+claim of this paper from an unexpected direction.</strong> Orientation
+was measured rather than assumed in every cell. Against the
+<em>contemporaneous</em> span TSI enters positively, rising as returns
+deteriorate. Against the <em>forward</em> span its orientation reverses.
+An index that reads the present correctly and inverts when asked about
+the future is precisely a coincident state index, which is what
+Section <a href="#sec:leadlag" data-reference-type="ref"
+data-reference="sec:leadlag">6.7</a> establishes by a different route.
+These tests use a different universe and a different ground truth from
+Section <a href="#sec:spectral" data-reference-type="ref"
+data-reference="sec:spectral">6.2</a>, so they form their own family and
+are not folded into the correction of Section <a
+href="#sec:multiplicity" data-reference-type="ref"
+data-reference="sec:multiplicity">6.6</a>.</p>
+<h2 id="sec:ricci">Head-to-Head Against Ollivier–Ricci Curvature</h2>
+<p>Correlations are mapped to the Mantegna distance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><msqrt><mrow><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>ρ</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msqrt></mrow><annotation encoding="application/x-tex">d_{ij} = \sqrt{2(1-\rho_{ij})}</annotation></semantics></math>,
+each node carries a measure over its neighbours proportional to the
+absolute correlation, and the curvature of an edge is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>κ</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><mn>1</mn><mo>−</mo><msub><mi>W</mi><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>m</mi><mi>i</mi></msub><mo>,</mo><msub><mi>m</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msub><mi>d</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\kappa_{ij} = 1 - W_1(m_i,m_j)/d_{ij}</annotation></semantics></math>
+with the earth-mover distance computed exactly by linear programming.
+The market-level scalar is the mean edge curvature; a
+correlation-weighted mean was also computed and behaves almost
+identically. Everything else is unchanged: same windows, same asymmetric
+filter applied to the curvature series as to every other,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>1</mn></msub><annotation encoding="application/x-tex">F_1</annotation></semantics></math>
+at the 90th percentile, block bootstrap, all three labellings.</p>
+<p>Orientation was measured rather than assumed. Mean curvature is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.711</mn><annotation encoding="application/x-tex">0.711</annotation></semantics></math>
+in labelled crisis windows against
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.678</mn><annotation encoding="application/x-tex">0.678</annotation></semantics></math>
+in calm ones, so it rises under stress, which is the direction the
+original work reports.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sample</th>
+<th style="text-align: left;">Labels</th>
+<th
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>1</mn></msub><annotation encoding="application/x-tex">F_1</annotation></semantics></math>
+TSI</th>
+<th
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>1</mn></msub><annotation encoding="application/x-tex">F_1</annotation></semantics></math>
+curvature</th>
+<th
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><msub><mi>F</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">\Delta F_1</annotation></semantics></math>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">OOS 2016–2026</td>
+<td style="text-align: left;">16 episodes</td>
+<td style="text-align: center;">0.434</td>
+<td style="text-align: center;">0.301</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.126</mn></mrow><annotation encoding="application/x-tex">+0.126</annotation></semantics></math>
+(0.011)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OOS 2016–2026</td>
+<td style="text-align: left;">23 windows</td>
+<td style="text-align: center;">0.447</td>
+<td style="text-align: center;">0.337</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.087</mn></mrow><annotation encoding="application/x-tex">+0.087</annotation></semantics></math>
+(0.007)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OOS 2016–2026</td>
+<td style="text-align: left;">25 episodes</td>
+<td style="text-align: center;">0.451</td>
+<td style="text-align: center;">0.321</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.101</mn></mrow><annotation encoding="application/x-tex">+0.101</annotation></semantics></math>
+(0.003)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FULL 2000–2026</td>
+<td style="text-align: left;">16 episodes</td>
+<td style="text-align: center;">0.340</td>
+<td style="text-align: center;">0.335</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.023</mn></mrow><annotation encoding="application/x-tex">+0.023</annotation></semantics></math>
+(0.388)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FULL 2000–2026</td>
+<td style="text-align: left;">23 windows</td>
+<td style="text-align: center;">0.389</td>
+<td style="text-align: center;">0.317</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.074</mn></mrow><annotation encoding="application/x-tex">+0.074</annotation></semantics></math>
+(0.018)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FULL 2000–2026</td>
+<td style="text-align: left;">25 episodes</td>
+<td style="text-align: center;">0.386</td>
+<td style="text-align: center;">0.316</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.073</mn></mrow><annotation encoding="application/x-tex">+0.073</annotation></semantics></math>
+(0.023)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Curvature lands where a reader familiar with this literature would
+expect it to land: clearly above the Absorption Ratio, which scores 0.13
+to 0.17 on the same windows, and somewhat below the effective rank,
+which scores 0.34 to 0.38. It is a mid-strength baseline rather than a
+weak one, and the honest summary is that TSI is ahead of it in all six
+cells but not by the margin it holds over the Absorption Ratio.
+Section <a href="#sec:multiplicity" data-reference-type="ref"
+data-reference="sec:multiplicity">6.6</a> reports what survives once
+this comparison is folded into the corrected family, and only one of the
+five nominally significant cells does.</p>
+<h2 id="sec:multiplicity">Correcting for Multiple Comparisons</h2>
+<p>This paper runs many related tests, and reporting each in isolation
+would overstate the evidence. We therefore define the family in advance
+and correct over all of it. Hypothesis H1 is tested by comparing TSI
+against every <em>distinct</em> baseline (the effective rank, which is
+identical to the Vendi score on a correlation matrix and so is counted
+once; the Absorption Ratio; and the effective rank computed on the
+return matrix), on both samples, under all three crisis labellings. With
+the Ollivier–Ricci curvature of Section <a href="#sec:ricci"
+data-reference-type="ref" data-reference="sec:ricci">6.5</a> included,
+that is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>×</mo><mn>2</mn><mo>×</mo><mn>3</mn><mo>=</mo><mn>24</mn></mrow><annotation encoding="application/x-tex">4 \times 2 \times 3 = 24</annotation></semantics></math>
+tests, and all twenty-four enter the family, including those that were
+never going to be reported as wins: choosing which tests belong is
+precisely the manoeuvre the correction exists to prevent. We apply
+Holm–Bonferroni at a family-wise error rate of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.05</mn><annotation encoding="application/x-tex">0.05</annotation></semantics></math>,
+which is uniformly more powerful than plain Bonferroni and assumes no
+independence between tests.</p>
+<p><strong>Sixteen of the twenty-four are significant before the
+correction and nine after it.</strong> The nine that survive are the
+eight wins over the Absorption Ratio and over the effective rank on
+returns, under the 23-window and 25-episode labellings, on both samples,
+all with bootstrap
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+below
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.0001</mn><annotation encoding="application/x-tex">0.0001</annotation></semantics></math>
+against Holm thresholds between
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.0028</mn><annotation encoding="application/x-tex">0.0028</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.0045</mn><annotation encoding="application/x-tex">0.0045</annotation></semantics></math>;
+plus one of the six comparisons against curvature. The six comparisons
+against the effective rank were ties before the correction and remain
+ties after it, so the central finding of this paper is untouched: a
+correction cannot turn a tie into anything else.</p>
+<p><strong>Three results are lost, and all three sit on the same
+labelling.</strong> The win over the effective rank on returns out of
+sample under the 16-episode list
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><msub><mi>F</mi><mn>1</mn></msub><mo>=</mo><mo>+</mo><mn>0.179</mn></mrow><annotation encoding="application/x-tex">\Delta F_1 = +0.179</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.0060</mn></mrow><annotation encoding="application/x-tex">p = 0.0060</annotation></semantics></math>
+against a threshold of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.0050</mn><annotation encoding="application/x-tex">0.0050</annotation></semantics></math>),
+and the wins over the Absorption Ratio and the effective rank on returns
+over the full history under the same list
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.040</mn></mrow><annotation encoding="application/x-tex">p = 0.040</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0.044</mn></mrow><annotation encoding="application/x-tex">p = 0.044</annotation></semantics></math>).
+This is the narrowest of the three labellings and the one with the least
+power, and the paper already identified it as the weakest support for
+the Absorption Ratio result before the correction was applied. The
+correction did not reveal a new weakness; it quantified one that was
+already declared.</p>
+<p>The practical reading is that the advantage over the Absorption Ratio
+is real under the two broader labellings and does not reach family-wise
+significance under the narrowest. We state the claim at that strength
+and no higher.</p>
+<h2 id="sec:leadlag">Lead–Lag Analysis: a Coincident Index, Not a
+Forecast</h2>
+<p>The F1-at-90th-percentile criterion used throughout asks whether TSI
+is <em>elevated during</em> documented stress windows. It is a
+contemporaneous classification test, and it says nothing about whether
+TSI rises <em>before</em> stress. Because the framing of a “fragility
+index” invites the stronger reading, we test the stronger claim
+directly.</p>
+<p>We cross-correlate TSI against the OFR Financial Stress Index <span
+class="citation" data-cites="monin2019"></span> at lags
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>∈</mo><mrow><mo stretchy="true" form="prefix">[</mo><mo>−</mo><mn>15</mn><mo>,</mo><mo>+</mo><mn>30</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">k \in [-15, +30]</annotation></semantics></math>
+observations (each step
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>≈</mo><annotation encoding="application/x-tex">\approx</annotation></semantics></math>
+3 business days), where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">k &gt; 0</annotation></semantics></math>
+means TSI leads. Results on the full history
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>2</mn><mo>,</mo><mn>232</mn></mrow><annotation encoding="application/x-tex">n = 2{,}232</annotation></semantics></math>):</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Signal</th>
+<th style="text-align: center;">Peak
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">|</mo><mi>ρ</mi><mo stretchy="true" form="postfix">|</mo></mrow><annotation encoding="application/x-tex">|\rho|</annotation></semantics></math>
+at</th>
+<th
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">k=0</annotation></semantics></math></th>
+<th style="text-align: center;">Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TSI raw</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">k = 0</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.203</mn></mrow><annotation encoding="application/x-tex">+0.203</annotation></semantics></math></td>
+<td style="text-align: center;">exactly coincident</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TSI with memory</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">k = -2</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.195</mn></mrow><annotation encoding="application/x-tex">+0.195</annotation></semantics></math></td>
+<td style="text-align: center;">coincident (marginally lagging)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Absorption Ratio</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mo>−</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">k = -15</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.063</mn></mrow><annotation encoding="application/x-tex">+0.063</annotation></semantics></math></td>
+<td style="text-align: center;">lagging</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure id="fig:leadlag">
+<embed src="figure1_leadlag.pdf" />
+<figcaption>Cross-correlation against the OFR Financial Stress Index.
+TSI with its persistence filter is in dark blue, raw TSI in green, and
+the Absorption Ratio in red. <strong>(a)</strong> In levels, TSI peaks
+at or just before zero lag and decays symmetrically.
+<strong>(b)</strong> In first differences the same conclusion sharpens:
+at positive lags, where a leading indicator would show its peak, the
+correlation lies inside the noise band. The shape identifies a
+coincident state index rather than a forecast.</figcaption>
+</figure>
+<p>Both series are strongly autocorrelated, so the absolute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>
+values in levels are not the object of interest; the informative feature
+is the <em>shape</em> of the cross-correlation function, which decays
+symmetrically about
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>≈</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">k \approx 0</annotation></semantics></math>,
+the signature of a contemporaneous relationship rather than a leading
+one. Repeating the analysis on first differences sharpens the same
+conclusion:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">I</mi></mrow></mrow><annotation encoding="application/x-tex">\Delta\mathrm{TSI}</annotation></semantics></math>
+raw peaks exactly at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">k = 0</annotation></semantics></math>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mo>+</mo><mn>0.094</mn></mrow><annotation encoding="application/x-tex">\rho = +0.094</annotation></semantics></math>),
+and at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k = +1</annotation></semantics></math>,
+with TSI leading by a single step, the correlation is statistically
+indistinguishable from zero
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mo>−</mo><mn>0.009</mn></mrow><annotation encoding="application/x-tex">\rho = -0.009</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.008</mn></mrow><annotation encoding="application/x-tex">+0.008</annotation></semantics></math>
+for the memory and raw forms respectively, against a significance
+threshold of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>±</mo><mn>0.041</mn></mrow><annotation encoding="application/x-tex">\pm 0.041</annotation></semantics></math>
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>2</mn><mo>,</mo><mn>231</mn></mrow><annotation encoding="application/x-tex">n = 2{,}231</annotation></semantics></math>).
+The memory filter, being an exponential moving average, introduces a
+small lag rather than an anticipation, peaking at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mo>−</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">k = -4</annotation></semantics></math>.</p>
+<p><strong>What this does and does not change.</strong> It does not
+affect the paper’s principal result: the F1 comparison was always a
+contemporaneous test, it reproduces, and TSI outperforms the Absorption
+Ratio at every lag examined
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>≈</mo><mn>0.20</mn></mrow><annotation encoding="application/x-tex">\rho \approx 0.20</annotation></semantics></math>
+versus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.06</mn><annotation encoding="application/x-tex">0.06</annotation></semantics></math>).
+What it does change is the permissible framing. TSI should be read as a
+<em>state index</em>, closer in spirit to Convective Available Potential
+Energy in meteorology, which reports that the atmosphere is presently
+primed for severe weather without predicting when or where a storm will
+form, than as an early-warning signal. A high reading says the
+correlation network is presently in a concentrated, stressed
+configuration. It does not say that stress is coming. We adopt that
+language throughout and recommend that practitioners do the same.</p>
+<h2 id="four-original-scenarios">Four Original Scenarios</h2>
+<p><strong>Bear Stearns (March 2008).</strong> Raw TSI peaks
+<em>before</em> the rescue and falls afterward, while the Absorption
+Ratio keeps rising; TSI with memory tracks the AR’s sustained
+trajectory.</p>
+<p><strong>Lehman Brothers (September 2008).</strong> Raw TSI jumps
+sharply within days of the collapse, a much sharper reaction than the
+AR, and TSI with memory preserves this signal through October.</p>
+<p><strong>European debt crisis (2011): the original failure
+case.</strong> Raw TSI falls to 0.17–0.30 during the crisis on the
+10-bank network while the AR stays elevated; TSI with memory corrects
+this. Section <a href="#sec:large_network" data-reference-type="ref"
+data-reference="sec:large_network">6.9</a> shows this failure does not
+replicate on a larger, diversified network.</p>
+<p><strong>AI sector: the 2025 tariff shock.</strong> The same
+failure-and-correction pattern recurs on the tech-stock network
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>11</mn></mrow><annotation encoding="application/x-tex">n=11</annotation></semantics></math>).</p>
+<h2 id="sec:large_network">Large-Network Robustness and the Central
+Finding</h2>
+<p>Running the full pipeline on a 42-asset network diversified across
+seven sectors, 2006–2026, and normalising to z-scores:</p>
+<div id="tab:zscores">
+<table>
+<caption>Ending z-scores by network composition.</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">Financials</td>
+<td style="text-align: right;">Tech</td>
+<td style="text-align: right;">Diverse</td>
+<td style="text-align: right;">Full</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td
+style="text-align: right;">(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">n=10</annotation></semantics></math>,
+epicentre)</td>
+<td
+style="text-align: right;">(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">n=8</annotation></semantics></math>,
+non-ep.)</td>
+<td
+style="text-align: right;">(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">n=9</annotation></semantics></math>,
+mixed)</td>
+<td
+style="text-align: right;">(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>42</mn></mrow><annotation encoding="application/x-tex">n=42</annotation></semantics></math>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bear Stearns</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>0.28</mn></mrow><annotation encoding="application/x-tex">-0.28</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>0.42</mn></mrow><annotation encoding="application/x-tex">-0.42</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>0.26</mn></mrow><annotation encoding="application/x-tex">-0.26</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>0.12</mn></mrow><annotation encoding="application/x-tex">-0.12</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lehman</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.10</mn><annotation encoding="application/x-tex">0.10</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.20</mn><annotation encoding="application/x-tex">1.20</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.27</mn><annotation encoding="application/x-tex">1.27</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn mathvariant="bold">2.61</mn><annotation encoding="application/x-tex">\mathbf{2.61}</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Euro debt</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1.09</mn></mrow><annotation encoding="application/x-tex">-1.09</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2.18</mn><annotation encoding="application/x-tex">2.18</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn mathvariant="bold">5.35</mn><annotation encoding="application/x-tex">\mathbf{5.35}</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2.13</mn><annotation encoding="application/x-tex">2.13</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The pattern sits in the epicentre column. During the European debt
+crisis the ten-bank basket, which <em>is</em> the epicentre sector, ends
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mo>−</mo><mn>1.09</mn></mrow><annotation encoding="application/x-tex">z = -1.09</annotation></semantics></math>,
+below its own historical mean while the crisis is still running, whereas
+the diverse and full baskets end at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>5.35</mn></mrow><annotation encoding="application/x-tex">+5.35</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>2.13</mn></mrow><annotation encoding="application/x-tex">+2.13</annotation></semantics></math>;
+the same ordering holds at Lehman. That collapse of the reading during
+the episode is the forgetting behaviour the memory filter was built to
+repair, and it appears only where the basket is concentrated on the
+epicentre.</p>
+<p>Node count alone does not explain it: the 8-node tech-only basket
+does <strong>not</strong> exhibit the forgetting pattern. <strong>The
+variable that matters is whether the tested basket is concentrated in
+the sector that is the actual epicentre of the crisis.</strong> Any
+basket that avoids that concentration, whether small-and-diverse or
+large-and-diverse, retains an elevated reading.</p>
+<p>Replication in COVID (z = 1.35, Feb–Apr 2020) and the 2022 rate-hike
+selloff (z = 1.41, Jan–Oct 2022) confirms the pattern in two independent
+episodes.</p>
+<h2
+id="cross-market-test-crypto-commodities-fx-and-sovereign-debt">Cross-Market
+Test: Crypto, Commodities, FX, and Sovereign Debt</h2>
+<p><strong>Two clear successes.</strong> The all-time peak in the crypto
+series (z = 3.9) falls in May–June 2022, the Terra/Luna collapse, with
+MATIC-USD flagged as the most-connected asset. The all-time peak in
+sovereign debt (z = 3.6, August–December 2023) coincides with the
+historic bond selloff, with MBB (the highest-duration instrument)
+flagged as responsible.</p>
+<p><strong>Two episodes outside what TSI is built to measure.</strong>
+The September 2022 pound sterling / UK gilt crisis: TSI with memory
+stayed negative throughout, because the crisis was largely contained to
+sterling-linked instruments rather than reorganising the broader FX
+correlation structure. The 2022 Ukraine invasion: a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>∼</mo><annotation encoding="application/x-tex">\sim</annotation></semantics></math>3-month
+lag before TSI rose, consistent with geopolitical shocks propagating
+through price co-movement over weeks rather than instantaneously.</p>
+<p>These are not detection errors but <em>scope boundaries</em>: TSI
+detects correlation-structure breaks (episodes where normally
+semi-independent assets suddenly co-move), not directional price events.
+This yields a precise, falsifiable scope claim.</p>
+<h2 id="attempted-replication-on-shorter-series">Attempted Replication
+on Shorter Series</h2>
+<p>We attempted to repeat the calibration on the bank network (train:
+Bear Stearns + Lehman 2008; test: European debt crisis 2011) and the AI
+network. Both failed to reproduce the OFR result, and not because the
+filter stopped working, but because the highest TSI with memory readings
+in the training period systematically fell <em>outside</em> our defined
+crisis windows (they clustered on real but undocumented events).</p>
+<p><strong>Finding.</strong> With short series (5 years, 2–3 labelled
+episodes), the definition of the ground-truth event list dominates the
+calibration result far more than the choice of hyperparameters. The
+26-year, 20+-episode OFR series has enough independent events to support
+reliable out-of-sample calibration; 5-year, 2–3-episode series do
+not.</p>
+<h2 id="persistent-homology-1">Persistent Homology</h2>
+<p>The correlation-network H1 construction showed no discriminative
+pattern (mean 0.03–0.07 across all scenarios; calm and crisis periods
+indistinguishable). We attribute this to insufficient topological
+richness in an 8–11-node graph.</p>
+<p>The Takens-embedding construction tells a different story. The
+all-time maximum (30 March 2020, COVID) sits
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>∼</mo><annotation encoding="application/x-tex">\sim</annotation></semantics></math>12
+standard deviations above the historical mean (0.104
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>±</mo><annotation encoding="application/x-tex">\pm</annotation></semantics></math>
+0.110). <strong>Fifteen of the twenty highest readings fall inside
+documented crises</strong>, including October–November 2011, exactly the
+episode the small-network raw TSI missed.</p>
+<h2 id="sec:signed">The signed channel, and a head-to-head against the
+balance index</h2>
+<p>Three questions follow from the previous paragraph, and we answer
+them on the same windows, with code in the repository.</p>
+<p><strong>First: does the sign of the triangle carry independent
+information? No.</strong> Replacing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Tr</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>A</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\operatorname{Tr}(A^3)</annotation></semantics></math>
+by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Tr</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>ρ</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\operatorname{Tr}(\rho^3)</annotation></semantics></math>,
+which counts balanced minus frustrated triangles, changes nothing: the
+two series correlate at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.000</mn><annotation encoding="application/x-tex">1.000</annotation></semantics></math>
+across all 2<span>,</span>232 windows, and the resulting
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>1</mn></msub><annotation encoding="application/x-tex">F_1</annotation></semantics></math>
+moves by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.000</mn><annotation encoding="application/x-tex">0.000</annotation></semantics></math>
+(95% CI
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mo>−</mo><mn>0.005</mn><mo>,</mo><mo>+</mo><mn>0.005</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[-0.005, +0.005]</annotation></semantics></math>).
+The reason is structural rather than particular to this data. Positive
+semi-definiteness bounds how frustrated a triangle in a correlation
+matrix can be, so signed and unsigned triangle counts are nearly
+collinear by construction; the measured ratio averages
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.92</mn><annotation encoding="application/x-tex">0.92</annotation></semantics></math>.
+The sign channel that the balance literature exploits is not reachable
+through the triangle count alone, and we retire this extension rather
+than carry it forward.</p>
+<p><strong>Second: the balance index as an attribution rule.</strong>
+The local balance of Bartesaghi et al. shares with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>A</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{diag}(A^3)</annotation></semantics></math>
+the property of having no
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+to select, so it belongs in the comparison above on merit. On the same
+benchmark it scores
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.329</mn><annotation encoding="application/x-tex">0.329</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.552</mn><annotation encoding="application/x-tex">0.552</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.724</mn><annotation encoding="application/x-tex">0.724</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.841</mn><annotation encoding="application/x-tex">0.841</annotation></semantics></math>
+for one to four epicentres, against
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.992</mn><annotation encoding="application/x-tex">0.992</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.996</mn><annotation encoding="application/x-tex">0.996</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.972</mn><annotation encoding="application/x-tex">0.972</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.966</mn><annotation encoding="application/x-tex">0.966</annotation></semantics></math>
+for the triangle rule, with chance at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.188</mn><annotation encoding="application/x-tex">0.188</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.750</mn><annotation encoding="application/x-tex">0.750</annotation></semantics></math>.
+Because the generator contains no sign structure, which is precisely
+what a balance index is built to read, we repeated it with half of each
+stressed block loading negatively on its factor, so that frustrated
+triangles are present by construction. The ordering does not move:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.992</mn><annotation encoding="application/x-tex">0.992</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.988</mn><annotation encoding="application/x-tex">0.988</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.979</mn><annotation encoding="application/x-tex">0.979</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.968</mn><annotation encoding="application/x-tex">0.968</annotation></semantics></math>
+against
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.350</mn><annotation encoding="application/x-tex">0.350</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.567</mn><annotation encoding="application/x-tex">0.567</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.719</mn><annotation encoding="application/x-tex">0.719</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.838</mn><annotation encoding="application/x-tex">0.838</annotation></semantics></math>.</p>
+<p><strong>Third: detection, where we decline to claim a win.</strong>
+On our windows the balance index scores poorly, but the reason
+disqualifies the comparison rather than settling it. The index
+<em>saturates</em>: with 20-day windows over eight nodes it sits at its
+maximum of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+on 26% of windows in its weighted form and 70% in the binary form the
+same authors report, because short-window correlation matrices are
+almost entirely positive and an all-positive network is perfectly
+balanced. On the 42-asset network of Section <a
+href="#sec:large_network" data-reference-type="ref"
+data-reference="sec:large_network">6.9</a> lengthening the window makes
+it worse rather than better, the fraction of windows at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\kappa = 1</annotation></semantics></math>
+rising from 10% at 45 days to 24% at 100 and 63% at 400.</p>
+<p>That last observation, however, is a statement about small networks
+and not about the index, and the distinction decides who the finding is
+about. Repeating the measurement on 447 S&amp;P 500 constituents, and
+again on 464 over a ten-year panel, the saturation disappears:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math>
+ranges over almost the whole unit interval, with a median of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.44</mn><annotation encoding="application/x-tex">0.44</annotation></semantics></math>
+on the first panel and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.03</mn><annotation encoding="application/x-tex">0.03</annotation></semantics></math>
+on the second at a 60-day window, and at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.0</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">2.0\%</annotation></semantics></math>
+of windows sit at the maximum at any window length from 45 to 500 days.
+The measurement is reproduced by
+<code>code/validation/balance_saturation_sp500.py</code>. The reason is
+combinatorial. The number of triangles grows as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mn>3</mn></msup><annotation encoding="application/x-tex">n^3</annotation></semantics></math>,
+so in a large network a modest fraction of negative correlations already
+produces enough frustration to move the index, whereas a network of a
+few dozen nodes is close to balanced whatever the market is doing.
+Saturation is therefore a property of <em>small</em> correlation
+networks, and the regime the original authors work in, 199 to 385
+assets, is not one of them.</p>
+<p>Two consequences follow, and neither favours us. Our own networks of
+eight and 42 nodes are exactly the regime where their index cannot be
+evaluated, so no ranking produced on them would be informative about it,
+and none is given here. And the level of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math>
+is not portable: the median moves from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.44</mn><annotation encoding="application/x-tex">0.44</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.03</mn><annotation encoding="application/x-tex">0.03</annotation></semantics></math>
+between two panels of the same market a few years apart, so a fixed
+threshold calibrated on one dataset need not fire at all on another.
+What we do report is a check in the other direction: on our data their
+headline association reproduces, with the Spearman correlation between
+the balance index and mean absolute correlation at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.94</mn><annotation encoding="application/x-tex">0.94</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.89</mn><annotation encoding="application/x-tex">0.89</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.71</mn><annotation encoding="application/x-tex">0.71</annotation></semantics></math>
+for the three window lengths against the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.877</mn><annotation encoding="application/x-tex">0.877</annotation></semantics></math>
+they report, and with the conditional mean of forward average returns
+decreasing monotonically across balance quintiles at 45-day windows, as
+they describe.</p>
+<p><strong>A methodological note that this exercise forced, and that
+applies to the like-for-like table of Section <a href="#sec:spectral"
+data-reference-type="ref"
+data-reference="sec:spectral">6.2</a>.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>1</mn></msub><annotation encoding="application/x-tex">F_1</annotation></semantics></math>
+at a fixed percentile is a fixed alarm budget only if the metric takes
+distinct values near the threshold. A saturating metric flags far more
+than the intended fraction of windows and scores an inflated
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mn>1</mn></msub><annotation encoding="application/x-tex">F_1</annotation></semantics></math>
+through recall alone; the binary balance index flags 70% of windows at
+its 90th percentile and reaches
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub><mo>=</mo><mn>0.537</mn></mrow><annotation encoding="application/x-tex">F_1 = 0.537</annotation></semantics></math>
+with a precision of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.425</mn><annotation encoding="application/x-tex">0.425</annotation></semantics></math>
+against a base rate of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.406</mn><annotation encoding="application/x-tex">0.406</annotation></semantics></math>,
+which is no better than chance. We verified that no benchmark reported
+in this paper has this property. Every series in that table, raw and
+filtered, takes distinct values throughout and flags exactly 10.0% of
+windows at its 90th percentile; the check is printed by
+<code>code/validation/samefilter_benchmarks.py</code> in the
+repository.</p>
+<h1 id="discussion">Discussion</h1>
+<p><strong>What the index is worth, stated as a package.</strong> No
+single comparison in this paper is decisive on its own, and we do not
+present one as such. Taken together they describe something narrower
+and, we think, more useful than a win. On detection, TSI matches the
+best spectral measure available: a tie in all six labelling-by-sample
+cells, with the point estimate in TSI’s favour in five of them, which is
+a consistent direction that never separates from zero at this sample
+size. At the same alarm budget its alarms are the cleanest of any metric
+tested, 4.0% unexplained against 14.7% for the effective rank and
+roughly 59% for the Absorption Ratio, though that is the same comparison
+re-expressed and carries the same verdict. It reaches that level from a
+different primitive, network topology rather than variance
+decomposition, sharing only half its alarms with its nearest relative.
+And it arrives with a node-attribution layer that requires no selection
+rule, ties the best adaptive spectral rule, and cannot be misconfigured
+the way a fixed or badly chosen
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+can be.</p>
+<p>None of those four is a headline on its own. The defensible claim is
+the conjunction: <em>equal detection performance, cleaner alarms in
+point estimate, a different construction, and attribution included at no
+extra parameter</em>. A practitioner already running an effective-rank
+monitor would not switch on the strength of the detection numbers alone,
+and we do not suggest they should. What they would gain is the
+attribution layer, which their current tool supplies only after they
+commit to a component count and get it right.</p>
+<p>The central methodological lesson is that <strong>whether a tested
+basket is concentrated in the sector at the epicentre of a given crisis,
+not raw network size, determines whether raw TSI needs a memory
+correction.</strong> On a network concentrated in the epicentre sector
+(10 banks during banking crises), raw TSI behaves as a sharp but
+forgetful alarm. On a network that avoids that concentration, whether
+large-and-diverse (42 assets) or small-but-diverse (9 assets spanning
+seven sectors), raw TSI already exhibits sustained-elevation behaviour,
+replicated across three independent crises.</p>
+<h1 id="sec:limits">Limitations</h1>
+<h4 id="on-real-matrices-the-attribution-reduces-to-the-degree.">On real
+matrices the attribution reduces to the degree.</h4>
+<p>The per-node layer is defended in this paper on a synthetic benchmark
+where the ground truth is known, and there
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>A</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{diag}(A^3)</annotation></semantics></math>
+scores 0.966 to 0.996 against 0.933 to 0.961 for the far simpler node
+degree,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>ρ</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo stretchy="true" form="postfix">|</mo></mrow></mrow><annotation encoding="application/x-tex">\sum_j |\rho_{ij}|</annotation></semantics></math>.
+That gap does not survive contact with real data. Across 245 windows of
+464 S&amp;P 500 constituents, the cross-sectional rank correlation
+between
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>A</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{diag}(A^3)</annotation></semantics></math>
+and the degree averages <strong>0.996</strong>, and a cubic in the
+degree explains
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mn>2</mn></msup><mo>=</mo><mn>0.992</mn></mrow><annotation encoding="application/x-tex">R^2 = 0.992</annotation></semantics></math>
+of the triangle count. We then asked whether the remaining 0.8% carries
+anything of its own, since that residual is the only part of the
+quantity that is not a restatement of the degree. It does not: its rank
+correlation with forward five-day returns is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.002</mn></mrow><annotation encoding="application/x-tex">+0.002</annotation></semantics></math>
+with a bootstrap interval spanning zero, and its apparent association
+with forward volatility
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.187</mn></mrow><annotation encoding="application/x-tex">+0.187</annotation></semantics></math>)
+disappears once current volatility is partialled out
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>0.016</mn></mrow><annotation encoding="application/x-tex">+0.016</annotation></semantics></math>,
+interval
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mo>−</mo><mn>0.003</mn><mo>,</mo><mo>+</mo><mn>0.035</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[-0.003, +0.035]</annotation></semantics></math>),
+while the degree itself retains a small but non-zero effect there. The
+practical reading is that on correlation networks of real assets, naming
+the culprit with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>A</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{diag}(A^3)</annotation></semantics></math>
+and naming it with the degree give the same answer, and a practitioner
+should use the degree, which costs one matrix row-sum. What the triangle
+count buys is what Section <a href="#sec:attrib"
+data-reference-type="ref" data-reference="sec:attrib">6.1</a> claims and
+no more: no parameter to misspecify, and a measured advantage in a
+regime where the ground truth can be checked.</p>
+<ul>
+<li><p>The large-network result (Section <a href="#sec:large_network"
+data-reference-type="ref" data-reference="sec:large_network">6.9</a>) is
+a single test on one 42-asset universe; it has not been repeated with
+different sector compositions or other crises.</p></li>
+<li><p>The attempted short-series recalibration is a negative
+methodological result; we did not re-derive “correct” crisis windows to
+avoid indefinitely re-tuning ground truth.</p></li>
+<li><p>The Takens-embedding H1 result uses one embedding dimension and
+delay, chosen once; a proper replication would test robustness to these
+choices.</p></li>
+<li><p>The statistical significance test evaluates the memory filter
+against the exact objective it was designed for; it is not independent
+evidence of general superiority.</p></li>
+<li><p>Three different ground-truth lists are in use across the paper
+(Section <a href="#sec:oos_results" data-reference-type="ref"
+data-reference="sec:oos_results">6.3</a>). Every F1 figure uses one of
+them consistently, but the precision, recall and unexplained-alarm
+figures do not come from the same list as the F1 figures, and no result
+should be quoted as if they did.</p></li>
+<li><p>The attribution result of Section <a href="#sec:attrib"
+data-reference-type="ref" data-reference="sec:attrib">6.1</a> is
+established on synthetic networks. Against a spectral comparator with an
+adaptive
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+it is a tie, not an advantage; the advantage claimed is the absence of a
+selection rule, not accuracy.</p></li>
+<li><p>The win over the Absorption Ratio does not survive the narrowest
+of the three crisis lists (Section <a href="#sec:spectral"
+data-reference-type="ref" data-reference="sec:spectral">6.2</a>), and it
+is one of the three results that a Holm–Bonferroni correction over the
+family of eighteen tests removes (Section <a href="#sec:multiplicity"
+data-reference-type="ref" data-reference="sec:multiplicity">6.6</a>).
+The tie against the effective rank survives all three lists and is
+unaffected by the correction, as a tie must be.</p></li>
+<li><p>Nothing in this document constitutes investment advice.</p></li>
+</ul>
+<h1 id="where-this-stands">Where This Stands</h1>
+<p>Several questions that a reader would reasonably raise have already
+been answered, and it is more useful to say so than to list them as
+future work.</p>
+<p><strong>Settled, and reported above.</strong> Whether the conclusions
+survive a correction for multiple comparisons: Section <a
+href="#sec:multiplicity" data-reference-type="ref"
+data-reference="sec:multiplicity">6.6</a> defines the family of
+twenty-four tests and applies Holm–Bonferroni, and reports what does not
+survive it. Whether the index beats the nearest structural precedent,
+Ollivier–Ricci curvature: Section <a href="#sec:ricci"
+data-reference-type="ref" data-reference="sec:ricci">6.5</a> runs that
+head-to-head, which earlier versions declared and did not perform.
+Whether declining to rank the global balance index on small networks was
+concealing a loss: it was not, and Section <a href="#sec:signed"
+data-reference-type="ref" data-reference="sec:signed">6.13</a> reports
+the tie on a 464-asset universe where the index is well behaved, under
+the original authors’ own definition of a systemic event. Whether the
+attribution advantage survives a spectral rule that chooses its own
+number of components: it does not, and the claim was reduced accordingly
+to robustness rather than resolution. Whether the alarm-quality figure
+holds for the competitors too: computed for all of them. Whether the
+results depend on which list of crisis episodes is used: all three are
+reported. Whether signing the correlation recovers the single-asset
+blind spot: it does not, and the reason is structural. Whether the
+per-node layer sees something the node degree does not: on real matrices
+it does not, and Section <a href="#sec:limits" data-reference-type="ref"
+data-reference="sec:limits">8</a> says so with the numbers.</p>
+<p><strong>Open, and worth doing.</strong> A systematic sweep of the
+Takens embedding parameters, which would not change any conclusion here.
+And an attribution test on real data, which needs a partial ground
+truth, for instance from regulatory post-mortems of documented episodes;
+we note that after the degree result of Section <a href="#sec:limits"
+data-reference-type="ref" data-reference="sec:limits">8</a> the expected
+outcome of that test is fairly clear, which lowers its value.</p>
+<p><strong>Not attempted here, deliberately.</strong> Everything in this
+paper is a backtest of a state reading. Turning that into an allocation
+rule is a different exercise with a different evidential standard, and
+mixing the two would weaken both.</p>
+<p>Issues, pull requests and replication attempts are welcome at <a
+href="https://github.com/BiomeMakers/TSI-OmegaS"
+class="uri">https://github.com/BiomeMakers/TSI-OmegaS</a>. For
+production licensing: <code>acedo@biomemakers.com</code>.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>TSI’s apparent need for a memory correction turns out to be largely a
+property of small, sector-homogeneous, or crisis-epicentre-concentrated
+networks, not of TSI itself. On a large, diversified network, raw TSI
+already tracks sustained stress correctly. The memory filter remains a
+validated, statistically significant, out-of-sample-tested fix for the
+small or concentrated-network case, which is the realistic case for many
+practical applications (a single sector, a single portfolio, a single
+institution’s counterparties).</p>
+<p>Across all tests in this paper, namely four original scenarios,
+out-of-sample calibration, statistical significance testing, the
+like-for-like spectral benchmark under three crisis labellings, the
+adaptive-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+attribution control, the lead–lag analysis, the disentangled
+large-network robustness check and the persistent-homology extension,
+the evidence supports a specific and bounded conclusion. TSI matches a
+properly sharpened spectral measure at detecting stress rather than
+beating it. It equals one, from a different construction, with the
+cleanest alarms of anything we tested, and it brings with it an
+attribution of each reading to a specific asset that needs no component
+count to be chosen and therefore cannot be chosen wrongly. That
+combination is what we would ask a practitioner to weigh, complementary
+to and not a replacement for established indices such as the Absorption
+Ratio.</p>
+<div class="thebibliography">
+<p><span>99</span></p>
+<p>Acedo A. (2026). The Functional Symbiotic Resilience Index:
+Topological Entropy, Wasserstein Curvature Bounds, and Non-Equilibrium
+Thermodynamics of Complex Networks. <em>Preprint</em>. <a
+href="https://github.com/BiomeMakers/OmegaS-fsri"
+class="uri">https://github.com/BiomeMakers/OmegaS-fsri</a></p>
+<p>Ortiz-Álvarez R, Ortega-Arranz H, Ontiveros V J, de Celis M, Ravarani
+C, Acedo A, Belda I. (2021). Network properties of local fungal
+communities reveal the anthropogenic disturbance consequences of farming
+practices in vineyard soils. <em>mSystems</em>, 6(3), e00344-21.</p>
+<p>Saati-Santamaría Z, Pérez-Gorjón S, Abel-Schaad D, Acedo-Bécares A,
+et al. (2026). Soil microbial diversity and network organization respond
+to land use and agricultural inputs worldwide. <em>Global Change
+Biology</em>, 32(7), e70984.</p>
+<p>Acedo A, Ortega-Arranz H, Almonacid D, Ferrero A (2022). Methods and
+systems for generating and applying agronomic indices from
+microbiome-derived parameters. US Patent Application Publication
+No. US 2022/0268756 A1 (Appl. No. 17/665,332, filed 4 February 2022),
+Biome Makers Inc.</p>
+<p>Sandhu R S, Georgiou T T, Tannenbaum A R. (2016). Ricci curvature: an
+economic indicator for market fragility and systemic risk. <em>Science
+Advances</em>, 2(5), e1501495.</p>
+<p>Sánchez García J, Gherghe S. (2024). On the Ollivier-Ricci curvature
+as fragility indicator of the stock markets. arXiv:2405.07134.</p>
+<p>Kritzman M, Li Y. (2010). Skulls, Financial Turbulence, and Risk
+Management. <em>Financial Analysts Journal</em>, 66(5).</p>
+<p>Gidea M, Katz Y. (2018). Topological Data Analysis of Financial Time
+Series: Landscapes of Crashes. <em>Physica A</em>, 491.</p>
+<p>Mantegna R N. (1999). Hierarchical structure in financial markets.
+<em>European Physical Journal B</em>, 11(1).</p>
+<p>Billio M, Getmansky M, Lo A W, Pelizzon L. (2012). Econometric
+measures of connectedness and systemic risk in the finance and insurance
+sectors. <em>Journal of Financial Economics</em>, 104(3).</p>
+<p>Minsky H P. (1992). The Financial Instability Hypothesis. <em>Levy
+Economics Institute Working Paper</em> No. 74.</p>
+<p>Monin P J. (2019). The OFR Financial Stress Index. <em>Risks</em>,
+7(1), 25.</p>
+<p>Roy O, Vetterli M. (2007). The effective rank: a measure of effective
+dimensionality. <em>Proceedings of the 15th European Signal Processing
+Conference (EUSIPCO)</em>, 606–610.</p>
+<p>Friedman D, Dieng A B. (2023). The Vendi Score: a diversity
+evaluation metric for machine learning. <em>Transactions on Machine
+Learning Research</em>. arXiv:2210.02410.</p>
+<p>Marchenko V A, Pastur L A. (1967). Distribution of eigenvalues for
+some sets of random matrices. <em>Matematicheskii Sbornik</em>, 72(4),
+507–536.</p>
+<p>Laloux L, Cizeau P, Bouchaud J-P, Potters M. (1999). Noise dressing
+of financial correlation matrices. <em>Physical Review Letters</em>,
+83(7), 1467–1470.</p>
+<p>Plerou V, Gopikrishnan P, Rosenow B, Amaral L A N, Guhr T, Stanley H
+E. (2002). Random matrix approach to cross correlations in financial
+data. <em>Physical Review E</em>, 65, 066126.</p>
+<p>Diebold F X, Yilmaz K. (2014). On the network topology of variance
+decompositions: measuring the connectedness of financial firms.
+<em>Journal of Econometrics</em>, 182(1), 119–134.</p>
+<p>Acemoglu D, Ozdaglar A, Tahbaz-Salehi A. (2015). Systemic risk and
+stability in financial networks. <em>American Economic Review</em>,
+105(2), 564–608.</p>
+<p>Samal A, Kumar S, Yadav Y, Chakraborti A. (2021). Network-centric
+indicators for fragility in global financial indices. <em>Frontiers in
+Physics</em>, 8, 624373. arXiv:2102.00070.</p>
+<p>Bartesaghi P, Diaz-Diaz F, Grassi R, Uberti P. (2025). Global balance
+and systemic risk in financial correlation networks.
+arXiv:2407.14272.</p>
+<p>Bartesaghi P, Grassi R, Uberti P. (2025). Local and global balance in
+financial correlation networks: an application to investment decisions.
+arXiv:2512.10606.</p>
+<p>Zhang S, Wang Z, Zheng J, Cartlidge J. (2026). Systemic risk in DeFi:
+a network-based fragility analysis of TVL dynamics.
+arXiv:2601.08540.</p>
+</div>
+<p><em>Correspondence:</em> Alberto Acedo, Biome Makers Inc.
+(<code>acedo@biomemakers.com</code>). The author declares no competing
+financial interests beyond patent applications filed by Biome Makers
+Inc. relating to the index described here.</p>
+</body>
+</html>

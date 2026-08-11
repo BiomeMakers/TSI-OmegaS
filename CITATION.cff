@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "TSI: the Triadic Stress Index, applied to financial systemic risk"
+authors:
+  - family-names: Acedo
+    given-names: Alberto
+    email: acedo@biomemakers.com
+    affiliation: Biome Makers Inc.
+date-released: 2026-08-08
+license: AGPL-3.0-only
+repository-code: https://github.com/BiomeMakers/TSI-OmegaS
+preferred-citation:
+  type: article
+  title: >
+    The Triadic Stress Index: A Coincident Network Measure of Systemic
+    Stress in Financial Markets, Derived from Microbiome Co-occurrence
+    Ecology
+  authors:
+    - family-names: Acedo
+      given-names: Alberto
+  year: 2026
+  notes: "Preprint text under CC BY-NC-ND 4.0. Patent pending, USPTO Serial No. 64/121,656."
+  url: https://github.com/BiomeMakers/TSI-OmegaS

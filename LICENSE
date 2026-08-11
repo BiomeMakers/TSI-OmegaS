@@ -1,0 +1,55 @@
+Triadic Stress Index (TSI) : Licensing
+================================
+
+Copyright (c) 2026 Biome Makers Inc.
+
+This work is dual-licensed. You may use it under the terms of EITHER:
+
+1. GNU Affero General Public License v3.0 (AGPL-3.0)
+   -----------------------------------------------------
+   Free for research, academic, and non-commercial use, and for any
+   commercial use where you are willing to comply with the AGPL-3.0
+   copyleft terms (including making source code of any modified
+   version available to users who interact with it over a network).
+   Full text: https://www.gnu.org/licenses/agpl-3.0.en.html
+
+2. Commercial License
+   -------------------
+   For production or commercial use without the copyleft obligations
+   of the AGPL-3.0 (e.g. embedding in a closed-source product or
+   service), a separate commercial license is required.
+   Contact: acedo@biomemakers.com
+
+Choosing option 1 or option 2 is at the discretion of the user. If you
+distribute, modify, or offer this software (or a derivative) as part
+of a network service without a commercial license, you must comply
+with the AGPL-3.0, including its source-availability requirements.
+
+Patent Notice
+-------------
+This work is built on and applies the Functional Symbiotic Resilience
+Index (FSRI, Omega), which is the subject of USPTO Patent Pending
+Serial No. 64/121,656, filed 29 July 2026, owned by Biome Makers Inc.
+This is the serial number assigned on electronic filing and is pending
+the official filing receipt. The licences above cover the software and
+the text of this repository; they do not grant patent rights beyond
+those implied by the AGPL-3.0's own patent clause for AGPL-licensed
+use. Commercial use of the underlying patented method requires the
+commercial licence referenced above.
+
+Scope of each licence
+---------------------
+Software in this repository (everything under code/ and figures/):
+  AGPL-3.0 or commercial, as set out above.
+The preprint text and figures (everything under preprint/ and arxiv/):
+  Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
+  International (CC BY-NC-ND 4.0), the same licence as the companion
+  theoretical paper. https://creativecommons.org/licenses/by-nc-nd/4.0/
+Data in data/raw/ is redistributed for reproducibility only and remains
+  subject to the terms of its original providers.
+
+No Warranty
+-----------
+This work is provided "as is", without warranty of any kind. Nothing
+in this repository constitutes investment, legal, or financial
+advice.
