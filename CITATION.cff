@@ -22,3 +22,8 @@ preferred-citation:
   year: 2026
   notes: "Preprint text under CC BY-NC-ND 4.0. Patent pending, USPTO Serial No. 64/121,656."
   url: https://github.com/BiomeMakers/TSI-OmegaS
+
+identifiers:
+  - type: other
+    value: "arXiv:2608.10788"
+    description: arXiv preprint
