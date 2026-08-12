@@ -134,3 +134,15 @@ variant to close the single-asset-divergence blind spot, a Takens-embedding para
 sweep, and repeating the large-network test with different sector compositions. Issues
 and pull requests are welcome; for licensing a production use case, contact
 acedo@biomemakers.com.
+
+## Citation
+
+@misc{acedo2026tsi,
+  title         = {The Triadic Stress Index in Financial Markets},
+  author        = {Acedo, Alberto},
+  year          = {2026},
+  eprint        = {2608.10788},
+  archivePrefix = {arXiv},
+  primaryClass  = {physics.soc-ph},
+  url           = {https://arxiv.org/abs/2608.10788}
+}
