@@ -1,3 +1,4 @@
+[![arXiv](https://img.shields.io/badge/arXiv-2608.10788-red)](https://arxiv.org/abs/2608.10788)
 # TSI: the Triadic Stress Index
 
 The **Triadic Stress Index** (TSI) is a structural index of a weighted
